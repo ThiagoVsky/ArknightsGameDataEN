@@ -1,0 +1,22 @@
+body { font-family: sans-serif; margin: 0; height: 100vh; display: flex; flex-direction: column; }
+#app { display: flex; flex: 1; overflow: hidden; }
+#sidebar { width: 250px; background: #f0f0f0; border-right: 1px solid #ddd; display: flex; flex-direction: column; }
+#sidebar h2 { margin: 0; padding: 10px; font-size: 1.2em; background: #e0e0e0; }
+#type-search { margin: 10px; padding: 5px; width: calc(100% - 30px); }
+#type-list { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex: 1; }
+#type-list li { padding: 10px; cursor: pointer; border-bottom: 1px solid #ddd; }
+#type-list li:hover { background: #e8e8e8; }
+#type-list li.active { background: #d0d0d0; font-weight: bold; }
+
+#entity-list-view { width: 350px; border-right: 1px solid #ddd; display: flex; flex-direction: column; }
+#entity-list-view h2 { margin: 0; padding: 10px; font-size: 1.2em; background: #e0e0e0; }
+.controls { display: flex; padding: 10px; gap: 5px; }
+.controls input, .controls select { padding: 5px; }
+#entity-list { list-style: none; padding: 0; margin: 0; overflow-y: auto; flex: 1; }
+#entity-list li { padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; display: flex; flex-direction: column; }
+#entity-list li:hover { background: #f9f9f9; }
+#entity-list li .name { font-weight: bold; }
+#entity-list li .id { font-size: 0.8em; color: #666; }
+
+#entity-details-view { flex: 1; padding: 20px; overflow-y: auto; background: #fafafa; }
+pre { background: #eee; padding: 10px; overflow-x: auto; border-radius: 4px; }

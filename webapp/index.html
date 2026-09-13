@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mapper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar">
+            <h2>Entity Types</h2>
+            <input type="text" id="type-search" placeholder="Search types...">
+            <ul id="type-list"></ul>
+        </div>
+        <div id="entity-list-view">
+            <h2 id="current-type-title">Select a Type</h2>
+            <div class="controls">
+                <input type="text" id="entity-search" placeholder="Search entities...">
+                <select id="entity-sort">
+                    <option value="name">Sort by Name</option>
+                    <option value="id">Sort by ID</option>
+                    <option value="file">Sort by File</option>
+                </select>
+            </div>
+            <ul id="entity-list"></ul>
+        </div>
+        <div id="entity-details-view">
+            <h2>Entity Details</h2>
+            <div id="details-content"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
