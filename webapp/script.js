@@ -1,303 +1,399 @@
-let state = {
-    indexData: null,
-    currentType: null,
-    entities: [],
-    filesCache: {}
-};
+const INDEX_URL = 'data_index.json';
+const REPO_ROOT = '../en/gamedata/';
 
-async function loadIndex() {
+let indexData = {};
+let currentType = '';
+let entities = [];
+let filesCache = {};
+let storyLookup = {};
+
+// Ensure safe text node rendering to avoid XSS/HTML Injection
+function createTextElement(tag, text) {
+    const el = document.createElement(tag);
+    el.textContent = text;
+    return el;
+}
+
+async function init() {
     try {
-        const response = await fetch('data_index.json');
-        state.indexData = await response.json();
-        renderTypes();
-    } catch (e) {
-        console.error("Failed to load index", e);
-        document.getElementById('type-list').innerHTML = "<li>Error loading data</li>";
+        const res = await fetch(INDEX_URL);
+        if (!res.ok) throw new Error("Failed to load index");
+        indexData = await res.json();
+
+        storyLookup = indexData['_story_lookup'] || {};
+        delete indexData['_story_lookup'];
+
+        const types = Object.keys(indexData).sort();
+        renderTypeList(types);
+
+        document.getElementById('search-types').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            renderTypeList(types.filter(t => t.toLowerCase().includes(term)));
+        });
+
+        document.getElementById('search-entities').addEventListener('input', () => renderEntityList());
+        document.getElementById('sort-entities').addEventListener('change', () => renderEntityList());
+
+    } catch (err) {
+        console.error("Init Error:", err);
+        document.getElementById('type-list').appendChild(createTextElement('li', 'Error loading index. Did you run the python script?'));
     }
 }
 
-function getValidTypes() {
-    if (!state.indexData) return [];
-    const search = document.getElementById('type-search').value.toLowerCase();
-
-    // Filter out level_ files as there are thousands, just keep main tables
-    return Object.keys(state.indexData.entity_types)
-        .filter(t => !t.startsWith('level_') || t === 'level_main_01-01')
-        .filter(t => t.toLowerCase().includes(search))
-        .sort();
-}
-
-function renderTypes() {
-    const list = document.getElementById('type-list');
-    list.innerHTML = '';
-    const types = getValidTypes();
-    types.forEach(t => {
+function renderTypeList(types) {
+    const ul = document.getElementById('type-list');
+    ul.innerHTML = '';
+    types.forEach(type => {
         const li = document.createElement('li');
-        li.textContent = t;
-        if (t === state.currentType) li.classList.add('active');
-        li.onclick = () => selectType(t);
-        list.appendChild(li);
+        li.textContent = type;
+        li.onclick = () => selectType(type);
+        ul.appendChild(li);
     });
 }
 
 function selectType(type) {
-    state.currentType = type;
-    document.getElementById('current-type-title').textContent = type;
-    state.entities = state.indexData.entity_types[type] || [];
-    renderTypes(); // Update active class
-    renderEntities();
+    currentType = type;
+    document.getElementById('current-type').textContent = type;
+    entities = indexData[type] || [];
+    renderEntityList();
 }
 
-function renderEntities() {
-    const list = document.getElementById('entity-list');
-    list.innerHTML = '';
+function renderEntityList() {
+    const ul = document.getElementById('entity-list');
+    ul.innerHTML = '';
 
-    const search = document.getElementById('entity-search').value.toLowerCase();
-    const sort = document.getElementById('entity-sort').value;
+    const term = document.getElementById('search-entities').value.toLowerCase();
+    const sortBy = document.getElementById('sort-entities').value;
 
-    let filtered = state.entities.filter(e => {
-        const nameMatch = e.name && e.name.toLowerCase().includes(search);
-        const idMatch = e.id && e.id.toLowerCase().includes(search);
-        return nameMatch || idMatch;
-    });
+    let filtered = entities.filter(e =>
+        (e.name && e.name.toLowerCase().includes(term)) ||
+        (e.id && String(e.id).toLowerCase().includes(term))
+    );
 
     filtered.sort((a, b) => {
-        let valA = a[sort] || "";
-        let valB = b[sort] || "";
-        if (valA < valB) return -1;
-        if (valA > valB) return 1;
+        if (sortBy === 'name') return String(a.name).localeCompare(String(b.name));
+        if (sortBy === 'id') return String(a.id).localeCompare(String(b.id));
+        if (sortBy === 'mtime') return (b.mtime || 0) - (a.mtime || 0); // descending
+        if (sortBy === 'size') return (b.size || 0) - (a.size || 0);   // descending
         return 0;
     });
 
-    // Limit to 200 items so the browser doesn't freeze when searching empty
-    filtered.slice(0, 200).forEach(e => {
+    const msg = document.getElementById('entity-count-msg');
+
+    // Pagination / Limit indicator
+    const limit = 500;
+    let displayed = filtered;
+    if (filtered.length > limit) {
+        displayed = filtered.slice(0, limit);
+        msg.textContent = `Showing ${limit} of ${filtered.length} entities.`;
+    } else {
+        msg.textContent = `Showing ${filtered.length} entities.`;
+    }
+
+    displayed.forEach(e => {
         const li = document.createElement('li');
-        li.innerHTML = `<span class="name">${e.name || 'Unnamed'}</span><span class="id">${e.id}</span>`;
+        const title = createTextElement('strong', e.name || e.id);
+        const sub = createTextElement('div', `${e.id}`);
+        sub.style.fontSize = '0.8em';
+        sub.style.color = 'var(--text-muted)';
+
+        li.appendChild(title);
+        li.appendChild(sub);
         li.onclick = () => loadEntityDetails(e);
-        list.appendChild(li);
+        ul.appendChild(li);
     });
 }
 
-async function fetchFile(filepath) {
-    if (state.filesCache[filepath]) return state.filesCache[filepath];
+async function fetchTableData(tableFile) {
+    const tablePath = `excel/${tableFile}`;
+    if (filesCache[tablePath]) return filesCache[tablePath];
     try {
-        const response = await fetch('../' + filepath);
-        if (!response.ok) throw new Error("Network response was not ok");
-        const data = await response.json();
-        state.filesCache[filepath] = data;
+        const res = await fetch(REPO_ROOT + tablePath);
+        if (!res.ok) return null;
+        const data = await res.json();
+        filesCache[tablePath] = data;
         return data;
-    } catch(e) {
-        console.error("Fetch file error:", e);
+    } catch {
         return null;
     }
 }
 
-async function fetchTextFile(filepath) {
-    if (state.filesCache[filepath]) return state.filesCache[filepath];
-    try {
-        const response = await fetch('../' + filepath);
-        if (!response.ok) return null;
-        const data = await response.text();
-        state.filesCache[filepath] = data;
-        return data;
-    } catch(e) {
-        return null;
-    }
-}
+async function loadEntityDetails(entityMeta) {
+    const details = document.getElementById('details-content');
+    details.innerHTML = 'Loading...';
 
-async function loadEntityDetails(entity) {
-    const content = document.getElementById('details-content');
-    content.innerHTML = '<p>Loading...</p>';
-
-    const fileData = await fetchFile(entity.file);
-    if (!fileData) {
-        content.innerHTML = '<p>Error loading file.</p>';
+    const tableData = await fetchTableData(entityMeta.file);
+    if (!tableData) {
+        details.innerHTML = '';
+        details.appendChild(createTextElement('p', 'Failed to load underlying table file.'));
         return;
     }
 
-    let entityData = fileData;
-    if (entity.nested_key) {
-        entityData = fileData[entity.nested_key][entity.id];
+    let entityData = null;
+
+    // Search the table. It could be flat, or nested in a container section
+    if (tableData[entityMeta.id]) {
+        entityData = tableData[entityMeta.id];
     } else {
-        entityData = fileData[entity.id] || fileData;
-        if (Array.isArray(fileData)) {
-            entityData = fileData.find(e => e.id === entity.id) || fileData;
+        // Deep search sections
+        for (const val of Object.values(tableData)) {
+            if (val && typeof val === 'object' && val[entityMeta.id]) {
+                entityData = val[entityMeta.id];
+                break;
+            }
         }
     }
 
-    // Modular parsers
-    if (state.currentType === 'character_table') {
-        content.innerHTML = await renderCharacter(entityData, entity);
-    } else if (state.currentType === 'stage_table') {
-        content.innerHTML = await renderStage(entityData, entity);
+    if (!entityData) {
+        details.innerHTML = '';
+        details.appendChild(createTextElement('p', 'Entity data not found inside the table.'));
+        return;
+    }
+
+    details.innerHTML = ''; // clear
+
+    if (currentType === 'character_table') {
+        renderCharacter(details, entityMeta, entityData);
+    } else if (currentType === 'stage_table') {
+        await renderStage(details, entityMeta, entityData);
     } else {
-        content.innerHTML = renderGeneric(entityData, entity);
+        renderGeneric(details, entityMeta, entityData);
     }
 }
 
-async function renderCharacter(data, entity) {
-    let html = `<h3>${data.name || 'Unnamed'} (${entity.id})</h3>`;
-    html += `<p><strong>Profession:</strong> ${data.profession || 'N/A'}</p>`;
-    html += `<p><strong>Description:</strong> ${data.description || data.itemUsage || 'N/A'}</p>`;
+function renderCharacter(container, meta, data) {
+    container.appendChild(createTextElement('h3', `${data.name || meta.id} (${meta.id})`));
+    container.appendChild(createTextElement('p', `Profession: ${data.profession || 'N/A'}`));
+    container.appendChild(createTextElement('p', `Description: ${data.description || 'N/A'}`));
 
-    // Skills
+    // Asset reference (informational only, no images)
+    container.appendChild(createTextElement('p', `Asset conventions: avatar_${meta.id}.png, char_${meta.id}.png`));
+
+    // Links to skills
     if (data.skills && data.skills.length > 0) {
-        html += `<h4>Skills</h4><ul>`;
-        data.skills.forEach(skill => {
-            html += `<li>Skill ID: ${skill.skillId}</li>`;
+        const skillDiv = document.createElement('div');
+        skillDiv.appendChild(createTextElement('h4', 'Skills'));
+        const ul = document.createElement('ul');
+        data.skills.forEach(s => {
+            if(s.skillId) ul.appendChild(createTextElement('li', `Skill ID: ${s.skillId}`));
         });
-        html += `</ul>`;
+        skillDiv.appendChild(ul);
+        container.appendChild(skillDiv);
     }
-
-    // Map assets based on handbook/art tables
-    html += `<h4>Related Assets (Inferred)</h4>`;
-    html += `<ul>`;
-    html += `<li>Avatar: <code>art/avatar/${entity.id}.png</code></li>`;
-    html += `<li>Portrait: <code>art/portraits/${entity.id}.png</code></li>`;
-    html += `</ul>`;
-
-    html += `<h4>Raw Data</h4><pre>${JSON.stringify(data, null, 2)}</pre>`;
-    return html;
 }
 
-// Stage Story Parser
-function parseStoryText(text) {
-    let html = '<ul>';
-    const lines = text.split('\n');
-    lines.forEach(line => {
-        line = line.trim();
-        if (line.startsWith('[')) {
-            const match = line.match(/^\[(.*?)(?:\((.*?)\))?\]/);
-            if (match) {
-                const tag = match[1];
-                const props = match[2] || '';
+async function renderStage(container, meta, data) {
+    let headerText = `${data.name || meta.id} (${meta.id})`;
 
-                // Track asset loading
-                if (tag.toLowerCase() === 'background' || tag.toLowerCase() === 'image') {
-                    let imageId = 'unknown';
-                    const imgMatch = props.match(/image="([^"]+)"/);
-                    if (imgMatch) imageId = imgMatch[1];
-                    html += `<li><em>[ASSET LOAD] Background/Image: <code>${imageId}</code></em></li>`;
-                } else if (tag.toLowerCase() === 'character') {
-                    let charId = 'unknown';
-                    const nameMatch = props.match(/name="([^"]+)"/);
-                    if (nameMatch) charId = nameMatch[1];
-                    html += `<li><em>[ASSET LOAD] Character Sprite: <code>${charId}</code></em></li>`;
-                } else if (tag.toLowerCase() === 'name') {
-                     // dialogue
-                     const nameMatch = props.match(/name="([^"]+)"/);
-                     const content = line.split(']').slice(1).join(']').trim();
-                     if (nameMatch && content) {
-                         html += `<li><strong>${nameMatch[1]}:</strong> ${content}</li>`;
-                     }
+    // Try to resolve zone and chapter
+    const zoneTable = await fetchTableData('zone_table.json');
+    if (zoneTable && data.zoneId) {
+        let zoneData = null;
+        for(const z of Object.values(zoneTable)){
+            if(z[data.zoneId]) { zoneData = z[data.zoneId]; break; }
+        }
+        if (zoneData) {
+            headerText = `${zoneData.zoneName || data.zoneId} > ` + headerText;
+
+            // Try Chapter
+            const chapTable = await fetchTableData('chapter_table.json');
+            if (chapTable) {
+                for(const c of Object.values(chapTable)) {
+                    // chapters are top level dicts, usually don't have startZoneId in all versions but we can check if zoneId matches
+                    if(c.startZoneId === data.zoneId) {
+                        headerText = `${c.chapterName} > ` + headerText;
+                    }
                 }
             }
         }
-    });
-    html += '</ul>';
-    return html;
-}
-
-
-async function renderStage(data, entity) {
-    let html = `<h3>${data.name || 'Unnamed'} - ${data.code || 'No Code'} (${entity.id})</h3>`;
-    html += `<p><strong>Description:</strong> ${data.description || 'N/A'}</p>`;
-
-    const zoneId = data.zoneId;
-    let storyDataFound = false;
-
-    html += `<h4>Chronological Event Flow</h4>`;
-
-    // 1. Before Stage Story
-    const beforeStoryPath = `en/gamedata/story/[uc]lua/story/${zoneId}/story_${entity.id}_beg.txt`;
-    let beforeText = await fetchTextFile(beforeStoryPath);
-    if (!beforeText) {
-        const beforeLegacyPath = `en/gamedata/story/obt/main/level_${entity.id}_beg.txt`;
-        beforeText = await fetchTextFile(beforeLegacyPath);
-    }
-    if (!beforeText && entity.id.startsWith("main_")) {
-         const altBeforePath = `en/gamedata/story/obt/main/level_${entity.id.replace('main_', '')}_beg.txt`;
-         beforeText = await fetchTextFile(altBeforePath);
     }
 
-    if (beforeText) {
-        html += `<h5>[1] Before Stage Story loaded</h5>`;
-        html += parseStoryText(beforeText);
-        storyDataFound = true;
+    container.appendChild(createTextElement('h3', headerText));
+
+    if (data.description) {
+        container.appendChild(createTextElement('p', `Description: ${data.description}`));
+    }
+
+    const flowDiv = document.createElement('div');
+    flowDiv.appendChild(createTextElement('h4', 'Chronological Event Flow'));
+    container.appendChild(flowDiv);
+
+    // 1. Before Battle Story
+    const begKey = `level_${data.stageId}_beg`;
+    if (storyLookup[begKey]) {
+        const text = await fetchText(REPO_ROOT + storyLookup[begKey]);
+        const section = document.createElement('div');
+        section.appendChild(createTextElement('strong', '[1] Before Stage Story loaded'));
+        section.appendChild(parseStoryText(text));
+        flowDiv.appendChild(section);
     } else {
-        html += `<h5>[1] Before Stage Story loaded</h5>`;
-        html += `<p><em>No story text found.</em></p>`;
+        flowDiv.appendChild(createTextElement('p', '[1] No before-battle story in scripted tree.'));
     }
 
-    // 2. Battle Stage Load
+    // 2. Map
+    const mapSection = document.createElement('div');
+    mapSection.style.marginTop = '20px';
+    mapSection.appendChild(createTextElement('strong', '[2] Battle Stage Map Loaded'));
     if (data.levelId) {
-        const levelDataId = data.levelId.toLowerCase();
-        let levelPath = `en/gamedata/levels/obt/main/${levelDataId.replace('obt/main/','')}.json`;
-        if (levelDataId.includes('obt/')) {
-            levelPath = `en/gamedata/levels/${levelDataId}.json`;
-        } else {
-             levelPath = `en/gamedata/levels/${levelDataId}.json`;
+        const mapPath = data.levelId.toLowerCase() + '.json';
+        mapSection.appendChild(createTextElement('div', `Map File: levels/${mapPath}`));
+        const mapData = await fetchMap(REPO_ROOT + 'levels/' + mapPath);
+        if (mapData) {
+            renderMap(mapSection, mapData);
         }
-
-        let levelData = await fetchFile(levelPath);
-        if (!levelData && levelDataId.includes("level_main_")) {
-             levelPath = `en/gamedata/levels/obt/main/${levelDataId.split('obt/main/').pop()}.json`;
-             levelData = await fetchFile(levelPath);
-        }
-
-        if (levelData) {
-            html += `<h5>[2] Battle Stage Map Loaded</h5>`;
-            html += `<ul>`;
-            html += `<li>Map File: <code>${levelPath}</code></li>`;
-            if (levelData.mapData && levelData.mapData.map && levelData.mapData.map.length > 0) {
-                 html += `<li>Map Dimensions: Width ${levelData.mapData.map[0].length}, Height ${levelData.mapData.map.length}</li>`;
-            }
-            if (levelData.bgmEvent) {
-                html += `<li>[ASSET LOAD] BGM Event: <code>${levelData.bgmEvent}</code></li>`;
-            } else if (levelData.mapData && levelData.mapData.bgmEvent) {
-                html += `<li>[ASSET LOAD] BGM Event: <code>${levelData.mapData.bgmEvent}</code></li>`;
-            }
-            html += `</ul>`;
-        } else {
-            html += `<h5>[2] Battle Stage Map Loaded</h5>`;
-            html += `<ul><li>Map File: <code>${levelDataId}</code> (Not found in known paths)</li></ul>`;
-        }
-    }
-
-    // 3. After Stage Story
-    const afterStoryPath = `en/gamedata/story/[uc]lua/story/${zoneId}/story_${entity.id}_end.txt`;
-    let afterText = await fetchTextFile(afterStoryPath);
-    if (!afterText) {
-        const afterLegacyPath = `en/gamedata/story/obt/main/level_${entity.id}_end.txt`;
-        afterText = await fetchTextFile(afterLegacyPath);
-    }
-
-    if (afterText) {
-        html += `<h5>[3] After Stage Story loaded</h5>`;
-        html += parseStoryText(afterText);
-        storyDataFound = true;
     } else {
-        html += `<h5>[3] After Stage Story loaded</h5>`;
-        html += `<p><em>No post-story text found.</em></p>`;
+        mapSection.appendChild(createTextElement('div', 'No levelId defined.'));
     }
+    flowDiv.appendChild(mapSection);
 
-    if (!storyDataFound && !data.levelId) {
-        html += `<p><em>No battle or story data found for this stage using standard pathing logic.</em></p>`;
+    // 3. After Battle Story
+    const endKey = `level_${data.stageId}_end`;
+    if (storyLookup[endKey]) {
+        const text = await fetchText(REPO_ROOT + storyLookup[endKey]);
+        const section = document.createElement('div');
+        section.style.marginTop = '20px';
+        section.appendChild(createTextElement('strong', '[3] After Stage Story loaded'));
+        section.appendChild(parseStoryText(text));
+        flowDiv.appendChild(section);
+    } else {
+        const p = createTextElement('p', '[3] No after-battle story in scripted tree.');
+        p.style.marginTop = '20px';
+        flowDiv.appendChild(p);
     }
-
-    html += `<h4>Raw Stage Data</h4><pre>${JSON.stringify(data, null, 2)}</pre>`;
-    return html;
 }
 
-function renderGeneric(data, entity) {
-    let html = `<h3>${entity.name || entity.id}</h3>`;
-    html += `<p><strong>File:</strong> ${entity.file}</p>`;
-    html += `<h4>Raw Data</h4><pre>${JSON.stringify(data, null, 2)}</pre>`;
-    return html;
+function renderGeneric(container, meta, data) {
+    container.appendChild(createTextElement('h3', meta.id));
+    const pre = document.createElement('pre');
+    pre.textContent = JSON.stringify(data, null, 2);
+    container.appendChild(pre);
 }
 
-document.getElementById('type-search').addEventListener('input', renderTypes);
-document.getElementById('entity-search').addEventListener('input', renderEntities);
-document.getElementById('entity-sort').addEventListener('change', renderEntities);
+async function fetchText(url) {
+    try {
+        const res = await fetch(url);
+        if (!res.ok) return null;
+        return await res.text();
+    } catch {
+        return null;
+    }
+}
 
-loadIndex();
+async function fetchMap(url) {
+    try {
+        const res = await fetch(url);
+        if (!res.ok) return null;
+        return await res.json();
+    } catch {
+        return null;
+    }
+}
+
+function parseStoryText(text) {
+    const container = document.createElement('div');
+    if (!text) {
+        container.appendChild(createTextElement('div', 'Failed to load text content.'));
+        return container;
+    }
+
+    const lines = text.split('\n');
+
+    lines.forEach(line => {
+        line = line.trim();
+        if (!line) return;
+
+        const lineDiv = document.createElement('div');
+        lineDiv.className = 'story-line';
+
+        // Dialogue usually follows: [name="CharacterName"] Dialogue text here
+        // Command usually follows: [Command(key="value")] or [Command]
+
+        let match = line.match(/^\[(.*?)\](.*)/);
+
+        if (match) {
+            const cmdBlock = match[1]; // e.g. name="Dobermann" or Background(image="bg_cher_1")
+            const trailingText = match[2].trim();
+
+            // Check if it's a known non-dialogue command
+            let isAssetCommand = false;
+            let assetDesc = '';
+
+            if (cmdBlock.startsWith('Background')) {
+                isAssetCommand = true;
+                assetDesc = 'Background/Image';
+            } else if (cmdBlock.startsWith('Character') || cmdBlock.startsWith('name2')) {
+                isAssetCommand = true;
+                assetDesc = 'Character Sprite';
+            } else if (cmdBlock.startsWith('PlayMusic') || cmdBlock.startsWith('PlaySound')) {
+                isAssetCommand = true;
+                assetDesc = 'Audio Event';
+            } else if (cmdBlock.startsWith('Delay') || cmdBlock.startsWith('Blocker') || cmdBlock.startsWith('ImageTween')) {
+                isAssetCommand = true;
+                assetDesc = 'Engine Command';
+            }
+
+            if (isAssetCommand) {
+                // Extract key/value if possible
+                let detail = cmdBlock;
+                const propMatch = cmdBlock.match(/\((.*?)\)/);
+                if (propMatch) detail = propMatch[1];
+
+                const s = createTextElement('span', `[ASSET LOAD] ${assetDesc}: ${detail}`);
+                s.className = 'story-asset';
+                lineDiv.appendChild(s);
+            } else if (cmdBlock.startsWith('name=')) {
+                // Dialogue
+                const nameStr = cmdBlock.replace('name=', '').replace(/"/g, '');
+                const d = createTextElement('div', `${nameStr}: ${trailingText}`);
+                d.className = 'story-dialogue';
+                lineDiv.appendChild(d);
+            } else {
+                // Generic tag
+                const d = createTextElement('div', `[${cmdBlock}] ${trailingText}`);
+                d.className = 'story-dialogue';
+                lineDiv.appendChild(d);
+            }
+        } else {
+            // Free text (rare, but happens)
+            const d = createTextElement('div', line);
+            d.className = 'story-dialogue';
+            lineDiv.appendChild(d);
+        }
+
+        container.appendChild(lineDiv);
+    });
+
+    return container;
+}
+
+function renderMap(container, mapData) {
+    if (!mapData.mapData || !mapData.mapData.map) return;
+
+    const layout = mapData.mapData.map;
+    const width = layout[0].length;
+    const height = layout.length;
+
+    container.appendChild(createTextElement('div', `Dimensions: ${width}x${height}`));
+
+    const grid = document.createElement('div');
+    grid.className = 'map-grid';
+    grid.style.gridTemplateColumns = `repeat(${width}, 20px)`;
+
+    layout.forEach(row => {
+        row.forEach(cell => {
+            const cellDiv = document.createElement('div');
+            cellDiv.className = 'map-cell';
+
+            // Tile types (simplified, actual game has many)
+            if (cell === 0) cellDiv.classList.add('wall');
+            if (cell === 3) cellDiv.classList.add('start'); // Spawn
+            if (cell === 4) cellDiv.classList.add('end'); // Base
+
+            grid.appendChild(cellDiv);
+        });
+    });
+
+    container.appendChild(grid);
+}
+
+init();

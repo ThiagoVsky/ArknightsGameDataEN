@@ -1,0 +1,4 @@
+Relations extracted (Placeholder - requires deep matching of IDs across files)
+character_table.skills[].skillId -> skill_table.json
+stage_table.stages[].levelId -> levels/...
+stage_table.stages[].zoneId -> zone_table.json
