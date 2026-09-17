@@ -1,1 +1,17 @@
 webapp/data_index.json
+server.log
+webapp/data/
+webapp/search_index.json
+webapp/manifest.json
+temp_registry.py
+registry_dict.py
+generate_python_registry.py
+generate_registry.py
+get_story_groups.py
+test_relations2.py
+fix_relations.py
+fix_relations2.py
+fix_levels.py
+relations_script.py
+scripts_and_temp/inspect_registry.py
+scripts_and_temp/detected_registry.json
