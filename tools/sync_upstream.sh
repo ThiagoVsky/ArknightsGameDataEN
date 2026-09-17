@@ -22,8 +22,8 @@ set -euo pipefail
 
 UPSTREAM_URL="${UPSTREAM_URL:-https://github.com/ArknightsAssets/ArknightsGamedata.git}"
 UPSTREAM_BRANCH="${UPSTREAM_BRANCH:-master}"
-DATA_BRANCH="${DATA_BRANCH:-EN}"
-MIRROR_BRANCH="${MIRROR_BRANCH:-master}"
+DATA_BRANCH="${DATA_BRANCH:-master}"
+MIRROR_BRANCH="${MIRROR_BRANCH:-upstream}"
 PRESERVED="${PRESERVED:-tools/preserved_files.txt}"
 DRY_RUN="${DRY_RUN:-0}"
 SYNC_PATHS=(en fbs_version.txt)

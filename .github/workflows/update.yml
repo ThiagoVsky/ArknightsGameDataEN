@@ -7,13 +7,22 @@ name: Download new assets
 #   - SEM --force: o arkprts compara o hot_update_list.json commitado em <server>/ com
 #     o do servidor e baixa apenas os bundles cujo hash mudou. O --force herdado
 #     rebaixava os 6 servidores inteiros em todo run e jogava fora esse mecanismo
-#   - o servidor alvo depende do branch: master espelha os 6 servidores, EN so o en
-#     (o branch EN removeu de proposito bili/cn/jp/kr/tw)
+#   - o servidor alvo e o `en` por padrao. Antes isso dependia do branch (master
+#     baixava os 6, EN so o en), o que virou uma armadilha quando master passou a
+#     carregar apenas os dados em ingles: rodar o workflow nele traria bili/cn/jp/kr/tw
+#     de volta e commitaria as cinco pastas que foram removidas de proposito.
+#     `all` continua disponivel, mas so por disparo manual explicito.
 #   - falhas de extracao, que o arkprts apenas registra em log, passam a ser
 #     reportadas no resumo do run em vez de serem engolidas
 
 on:
   workflow_dispatch:
+    inputs:
+      server:
+        description: "Which server dump to refresh"
+        type: choice
+        options: [en, all]
+        default: en
   schedule:
     - cron: '17 3 * * *'
 
@@ -51,7 +60,9 @@ jobs:
         id: update
         run: |
           set -o pipefail
-          SERVERS="${{ github.ref_name == 'EN' && 'en' || 'all' }}"
+          # Defaults to `en`: these branches carry only the English dump, and `all`
+          # would restore the five server directories that were removed on purpose.
+          SERVERS="${{ inputs.server || 'en' }}"
           echo "servidores: $SERVERS"
           # sem --force: atualizacao incremental pelo hot_update_list.json versionado
           python -m arkprts.assets . --server "$SERVERS" --log-level DEBUG 2>&1 | tee /tmp/arkprts.log

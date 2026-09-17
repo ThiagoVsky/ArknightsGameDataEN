@@ -12,9 +12,13 @@ name: Sync from upstream
 #
 # O que este workflow faz (tools/sync_upstream.sh):
 #   1. busca o branch do pai
-#   2. avanca o branch espelho (master) por fast-forward, mantendo o historico completo
-#      do pai disponivel no fork
-#   3. copia en/ e fbs_version.txt do pai para o branch de dados
+#   2. avanca o branch espelho (`upstream`) por fast-forward, mantendo o historico
+#      completo do pai disponivel no fork. O espelho passou a morar em `upstream`
+#      porque `master` virou o branch de dados e tem commits que o pai nao tem, o que
+#      fazia o script recusar o avanco com "espelho nao sera forcado"
+#   3. copia en/ e fbs_version.txt do pai para o branch de dados. Esses sao os unicos
+#      caminhos tocados: bili/, cn/, jp/, kr/ e tw/ nunca sao restaurados, porque nao
+#      estao na lista de caminhos do sync
 #   4. aplica as delecoes do pai dentro de en/, exceto os caminhos listados em
 #      tools/preserved_files.txt, que sao restaurados
 #   5. commita e publica, registrando o commit do pai na mensagem
@@ -44,7 +48,7 @@ jobs:
       - name: Checkout data branch
         uses: actions/checkout@v4
         with:
-          ref: EN
+          ref: master
           fetch-depth: 0
 
       - name: Configure git
@@ -57,6 +61,6 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           UPSTREAM_URL: https://github.com/ArknightsAssets/ArknightsGamedata.git
           UPSTREAM_BRANCH: master
-          DATA_BRANCH: EN
-          MIRROR_BRANCH: master
+          DATA_BRANCH: master
+          MIRROR_BRANCH: upstream
         run: bash tools/sync_upstream.sh
