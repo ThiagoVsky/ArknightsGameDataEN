@@ -1,0 +1,8 @@
+# assets de midia: cada subpasta vira um repositorio proprio (ver assets/README.md)
+assets/
+# estado incremental do sincronizador de assets
+.state/
+# ambiente python usado pelo sincronizador
+.venv-assets/
+__pycache__/
+*.pyc

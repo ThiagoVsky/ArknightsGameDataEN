@@ -1,44 +1,92 @@
 name: Download new assets
 
+# Atualiza o dump de gamedata (texto e JSON) a partir dos servidores do jogo.
+#
+# Mudancas em relacao ao workflow herdado do repositorio pai:
+#   - periodicidade de 24h em vez de 10 min (o dump muda em patch, nao a cada minuto)
+#   - SEM --force: o arkprts compara o hot_update_list.json commitado em <server>/ com
+#     o do servidor e baixa apenas os bundles cujo hash mudou. O --force herdado
+#     rebaixava os 6 servidores inteiros em todo run e jogava fora esse mecanismo
+#   - o servidor alvo depende do branch: master espelha os 6 servidores, EN so o en
+#     (o branch EN removeu de proposito bili/cn/jp/kr/tw)
+#   - falhas de extracao, que o arkprts apenas registra em log, passam a ser
+#     reportadas no resumo do run em vez de serem engolidas
+
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '*/10 * * * *'
+    - cron: '17 3 * * *'
+
+concurrency:
+  group: update-assets-${{ github.ref_name }}
+  cancel-in-progress: false
 
 jobs:
   update:
     name: Update
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Setup Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - name: Install arkprts
-        run: python -m pip install arkprts[all]
-      - name: install flatbuffers
+        run: python -m pip install "arkprts[all]"
+
+      - name: Install flatc
         run: |
-          wget -O flatc https://raw.githubusercontent.com/MooncellWiki/torappu/37e645f4528248b639b63c35dbb63ee7ae64a315/bin/flatc
+          wget -q -O flatc https://raw.githubusercontent.com/MooncellWiki/torappu/37e645f4528248b639b63c35dbb63ee7ae64a315/bin/flatc
           chmod +x flatc && sudo mv flatc /usr/bin/flatc
+
       - name: Update files
-        run: python -m arkprts.assets . --server all --log-level DEBUG --force
+        id: update
+        run: |
+          set -o pipefail
+          SERVERS="${{ github.ref_name == 'EN' && 'en' || 'all' }}"
+          echo "servidores: $SERVERS"
+          # sem --force: atualizacao incremental pelo hot_update_list.json versionado
+          python -m arkprts.assets . --server "$SERVERS" --log-level DEBUG 2>&1 | tee /tmp/arkprts.log
+
+      - name: Report extraction failures
+        if: always()
+        run: |
+          {
+            echo "### Extracao"
+            echo ""
+            echo "- arquivos com falha de extracao: $(grep -c 'Failed to extract asset' /tmp/arkprts.log || true)"
+            echo "- containers nao reconhecidos: $(grep -c 'Unrecognized container' /tmp/arkprts.log || true)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail on extraction errors
+        run: |
+          if grep -q 'Failed to extract asset' /tmp/arkprts.log; then
+            echo "extracao falhou em pelo menos um bundle; ver o log do passo anterior"
+            grep 'Failed to extract asset' /tmp/arkprts.log | head -20
+            exit 1
+          fi
+
       - name: Save FBS version
         run: |
-            version=$(cat ~/.local/share/arkprts/ArknightsFBS/cn/OpenArknightsFBS/commit.txt),$(cat ~/.local/share/arkprts/ArknightsFBS/yostar/OpenArknightsFBS/commit.txt),$(cat ~/.local/share/arkprts/ArknightsFlatbuffers/commit.txt)
-            echo $version > fbs_version.txt
+          version=$(cat ~/.local/share/arkprts/ArknightsFBS/cn/OpenArknightsFBS/commit.txt 2>/dev/null || echo unknown),$(cat ~/.local/share/arkprts/ArknightsFBS/yostar/OpenArknightsFBS/commit.txt 2>/dev/null || echo unknown),$(cat ~/.local/share/arkprts/ArknightsFlatbuffers/commit.txt 2>/dev/null || echo unknown)
+          echo "$version" > fbs_version.txt
+
       - name: Format files
         run: |
-            find **/gamedata/excel/*.json -exec python -m json.tool {} {} --no-ensure-ascii \;
-            find **/gamedata/levels/enemydata/enemy_database.json -exec python -m json.tool {} {} --no-ensure-ascii \;
+          find . -path '*/gamedata/excel/*.json' -exec python -m json.tool {} {} --no-ensure-ascii \;
+          find . -path '*/gamedata/levels/enemydata/enemy_database.json' -exec python -m json.tool {} {} --no-ensure-ascii \;
+
       - name: Check changed directories
-        run: git add . && echo "CHANGED_SERVERS=$(git status --porcelain | grep -o -E 'en/|jp/|kr/|cn/|tw/' | sed 's/\/$//' | sort -u | tr '\n' ',' | sed 's/,$//')" >> $GITHUB_ENV
+        run: |
+          git add . && echo "CHANGED_SERVERS=$(git status --porcelain | grep -o -E '(^| )(bili|cn|en|jp|kr|tw)/' | tr -d ' ' | sed 's|/$||' | sort -u | tr '\n' ',' | sed 's/,$//')" >> $GITHUB_ENV
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
