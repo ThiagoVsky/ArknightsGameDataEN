@@ -56,7 +56,7 @@ for spec in "${SPECS[@]}"; do
   fi
 
   # andaime: so o que nao e payload
-  run git add README.md .gitignore tools .github
+  run git add README.md AGENTS.md .gitignore tools .github
   if ! git diff --cached --quiet 2>/dev/null; then
     run git -c user.name="$GIT_NAME" -c user.email="$GIT_MAIL" commit -q -m "Initial commit: asset pipeline for $GROUP"
   fi

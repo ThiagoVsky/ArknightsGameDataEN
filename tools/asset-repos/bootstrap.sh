@@ -55,6 +55,7 @@ __pycache__/
 EOF
 
 python3 "$ROOT/tools/asset-repos/readme.py" "$GROUP" > "$DEST/README.md"
+( cd "$ROOT/tools/asset-repos" && python3 agents.py "$GROUP" ) > "$DEST/AGENTS.md"
 
 echo "materializado: $DEST"
 ls -1 "$DEST"

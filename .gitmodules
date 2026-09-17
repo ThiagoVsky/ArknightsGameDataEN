@@ -1,0 +1,28 @@
+[submodule "assets/voice-jp"]
+	path = assets/voice-jp
+	url = https://github.com/ThiagoVsky/arknights-voice-jp.git
+	branch = main
+[submodule "assets/voice-cn"]
+	path = assets/voice-cn
+	url = https://github.com/ThiagoVsky/arknights-voice-cn.git
+	branch = main
+[submodule "assets/voice-en"]
+	path = assets/voice-en
+	url = https://github.com/ThiagoVsky/arknights-voice-en.git
+	branch = main
+[submodule "assets/voice-kr"]
+	path = assets/voice-kr
+	url = https://github.com/ThiagoVsky/arknights-voice-kr.git
+	branch = main
+[submodule "assets/voice-custom"]
+	path = assets/voice-custom
+	url = https://github.com/ThiagoVsky/arknights-voice-custom.git
+	branch = main
+[submodule "assets/sound"]
+	path = assets/sound
+	url = https://github.com/ThiagoVsky/arknights-sound.git
+	branch = main
+[submodule "assets/en"]
+	path = assets/en
+	url = https://github.com/ThiagoVsky/arknights-assets-en.git
+	branch = main
