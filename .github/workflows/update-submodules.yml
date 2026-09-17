@@ -1,0 +1,58 @@
+name: Update asset submodule pointers
+
+# The asset repositories publish themselves from their own workflows, so this
+# repository only has to record which commit each one is on. Nothing is downloaded
+# here: `git ls-remote` reads the ref advertisement of each submodule, a few kilobytes
+# each, and the pointer is written straight into the index. Checking the submodules out
+# instead would pull several gigabytes of payload every day for no reason.
+#
+# Scheduled to run after the asset repositories' own 04:23 UTC update, so the pointers
+# name what those runs just published.
+
+on:
+  schedule:
+    - cron: "10 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pointers:
+    name: Bump submodule pointers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Point every submodule at the tip of its tracked branch
+        run: |
+          set -euo pipefail
+          # Path, url and branch come straight from .gitmodules, so adding a group
+          # needs no change here.
+          git config -f .gitmodules --get-regexp '^submodule\..*\.path$' | while read -r key path; do
+            name="${key#submodule.}"
+            name="${name%.path}"
+            url=$(git config -f .gitmodules --get "submodule.$name.url")
+            branch=$(git config -f .gitmodules --get "submodule.$name.branch" || echo main)
+            sha=$(git ls-remote "$url" "refs/heads/$branch" | cut -f1)
+            if [ -z "$sha" ]; then
+              echo "::error::cannot read refs/heads/$branch from $url"
+              exit 1
+            fi
+            current=$(git rev-parse --verify --quiet "HEAD:$path" || echo none)
+            echo "$path: ${current:0:10} -> ${sha:0:10}"
+            git update-index --add --cacheinfo "160000,$sha,$path"
+          done
+
+      - name: Commit and push when a pointer moved
+        run: |
+          set -euo pipefail
+          if git diff --cached --quiet; then
+            echo "every pointer already names the current commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update asset submodule pointers"
+          git push

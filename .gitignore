@@ -1,0 +1,7 @@
+# estado incremental do sincronizador de assets
+.state/
+# ambiente python usado pelo sincronizador
+.venv-assets/
+__pycache__/
+*.pyc
+.gitignore
