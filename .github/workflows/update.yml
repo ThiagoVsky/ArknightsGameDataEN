@@ -1,19 +1,29 @@
 name: Download new assets
 
-# Atualiza o dump de gamedata (texto e JSON) a partir dos servidores do jogo.
+# Refreshes the EN gamedata dump (text and JSON) straight from the game servers. This is
+# the only source of the data: the parent repository is no longer synced.
 #
-# Mudancas em relacao ao workflow herdado do repositorio pai:
-#   - periodicidade de 24h em vez de 10 min (o dump muda em patch, nao a cada minuto)
-#   - SEM --force: o arkprts compara o hot_update_list.json commitado em <server>/ com
-#     o do servidor e baixa apenas os bundles cujo hash mudou. O --force herdado
-#     rebaixava os 6 servidores inteiros em todo run e jogava fora esse mecanismo
-#   - o servidor alvo e o `en` por padrao. Antes isso dependia do branch (master
-#     baixava os 6, EN so o en), o que virou uma armadilha quando master passou a
-#     carregar apenas os dados em ingles: rodar o workflow nele traria bili/cn/jp/kr/tw
-#     de volta e commitaria as cinco pastas que foram removidas de proposito.
-#     `all` continua disponivel, mas so por disparo manual explicito.
-#   - falhas de extracao, que o arkprts apenas registra em log, passam a ser
-#     reportadas no resumo do run em vez de serem engolidas
+# Differences from the workflow inherited from the parent repository:
+#   - 24 hour cadence instead of 10 minutes: the dump changes on patch, not per minute.
+#     It runs at 12:00 UTC because updates usually land around 06:00 UTC and a major one
+#     keeps the game servers closed until about 10:00, delays possible, so 12:00 leaves
+#     room for that while still being the same day.
+#   - no --force: arkprts compares the hot_update_list.json committed under <server>/
+#     with the server's own and downloads only the bundles whose hash changed. The
+#     inherited --force re-downloaded all six servers on every run and discarded that
+#     mechanism.
+#   - the target server is `en` by default. It used to be derived from the branch name,
+#     and on `master` that expression evaluated to `all`, which would have downloaded
+#     bili/, cn/, jp/, kr/ and tw/ and committed them, restoring the five directories
+#     this branch removed on purpose. `all` is still reachable, but only as an explicit
+#     manual dispatch input.
+#   - extraction failures, which arkprts only logs, are reported in the run summary and
+#     fail the job instead of being swallowed.
+#
+# The updater only ever writes: it downloads the outdated bundles, extracts them and
+# saves the new hot_update_list.json. It has no deletion path, which is why the 33 story
+# files listed in tools/preserved_files.txt, absent upstream but kept here, survive every
+# run.
 
 on:
   workflow_dispatch:
@@ -24,7 +34,7 @@ on:
         options: [en, all]
         default: en
   schedule:
-    - cron: '17 3 * * *'
+    - cron: '0 12 * * *'
 
 concurrency:
   group: update-assets-${{ github.ref_name }}
