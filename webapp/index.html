@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div style="padding: 10px; background-color: var(--panel-bg); border-bottom: 1px solid var(--border-color);">
-        <input type="text" id="global-search" placeholder="Search across all data..." style="width: 50%; max-width: 500px; margin-bottom: 0;">
-    </div>
     <div class="container">
         <!-- Panel 1: Entity Types -->
         <div class="panel" id="panel-types">
             <h2>Entity Types</h2>
+            <input type="text" id="search-types" placeholder="Search types...">
             <ul id="type-list"></ul>
         </div>
 
@@ -25,6 +23,8 @@
                 <select id="sort-entities">
                     <option value="name">Sort by Name</option>
                     <option value="id">Sort by ID</option>
+                    <option value="mtime">Sort by Date</option>
+                    <option value="size">Sort by Size</option>
                 </select>
             </div>
             <div id="entity-count-msg" class="msg"></div>
@@ -32,12 +32,10 @@
         </div>
 
         <!-- Panel 3: Entity Details -->
-        <div id="panel-stack" style="display: flex; flex: 3; overflow-x: auto;">
-            <div class="panel pane-stack-member" id="panel-details">
-                <h2>Entity Details</h2>
-                <div id="details-content">
-                    <p>Select an entity to view details.</p>
-                </div>
+        <div class="panel" id="panel-details">
+            <h2>Entity Details</h2>
+            <div id="details-content">
+                <p>Select an entity to view details.</p>
             </div>
         </div>
     </div>
