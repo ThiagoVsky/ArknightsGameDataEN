@@ -1,4 +1,8 @@
-Relations extracted (Placeholder - requires deep matching of IDs across files)
-character_table.skills[].skillId -> skill_table.json
-stage_table.stages[].levelId -> levels/...
-stage_table.stages[].zoneId -> zone_table.json
+Relations extracted:
+skin_table.charSkins[].charId -> character_table.json: 1140/1140 (100.0%)
+character_table.skills[].skillId -> skill_table.json: 1626/1627 (99.9%)
+stage_table.stages[].levelId -> levels/...: 0/2300 (0.0%)
+stage_table.stages[].zoneId -> zone_table.json: 236/236 (100.0%)
+battle_equip_table (via uniequip) -> character_table.json: 378/378 (100.0%)
+charword_table.charWords -> character_table.json: 413/415 (99.5%)
+stage_table.stages -> retro_table (collections): 1310/3319 (39.5%)
