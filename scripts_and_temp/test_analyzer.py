@@ -1,40 +1,74 @@
 import json
 import os
+import unittest
+import subprocess
 
-OUTPUT_INDEX = "webapp/data_index.json"
+OUTPUT_MANIFEST = "webapp/manifest.json"
+STORY_LOOKUP = "webapp/data/story_lookup.json"
+DATA_DIR = "en/gamedata"
 
-def test_analyzer_output():
-    assert os.path.exists(OUTPUT_INDEX), "Index file missing"
+class TestAnalyzerOutput(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # Run analyzer independently to assure tests run on clean checkout
+        subprocess.run(["python3", "scripts_and_temp/analyzer.py"], check=True)
 
-    with open(OUTPUT_INDEX, 'r') as f:
-        data = json.load(f)
+    def test_files_exist(self):
+        self.assertTrue(os.path.exists(OUTPUT_MANIFEST), "Manifest file missing")
+        self.assertTrue(os.path.exists(STORY_LOOKUP), "Story lookup file missing")
 
-    # Check that there are no level_* entries
-    for key in data.keys():
-        assert not key.startswith("level_") or key == "level_table", f"Found level map in index: {key}"
+    def test_no_level_tables_in_manifest(self):
+        with open(OUTPUT_MANIFEST, 'r') as f:
+            data = json.load(f)
+        for key in data.keys():
+            self.assertFalse(key.startswith("level_") and key != "level_table", f"Found level map in index: {key}")
 
-    # Check specific counts
-    assert "item_table" in data, "item_table missing"
-    # item_table has "items", "expItems" etc. Our script extracts all inner dicts.
-    # Let's count just "items" or check if it's > 1000
-    assert len(data["item_table"]) > 1000, f"item_table has too few items: {len(data['item_table'])}"
+    def test_exact_counts(self):
+        with open(OUTPUT_MANIFEST, 'r') as f:
+            data = json.load(f)
 
-    assert "zone_table" in data, "zone_table missing"
-    assert len(data["zone_table"]) >= 438, f"zone_table count incorrect: {len(data['zone_table'])}"
+        self.assertIn("item_table", data)
+        self.assertEqual(data["item_table"]["count"], 1414, "item_table count incorrect")
 
-    assert "skin_table" in data, "skin_table missing"
-    assert len(data["skin_table"]) >= 2000, f"skin_table count incorrect: {len(data['skin_table'])}"
+        self.assertIn("zone_table", data)
+        self.assertEqual(data["zone_table"]["count"], 438, "zone_table count incorrect")
 
-    assert "skill_table" in data, "skill_table missing"
-    assert len(data["skill_table"]) > 0, "skill_table is empty"
+        self.assertIn("skin_table", data)
+        self.assertEqual(data["skin_table"]["count"], 2078, "skin_table count incorrect")
 
-    assert "_story_lookup" in data, "Story lookup missing"
-    # Check if a known main story resolves correctly via the lookup
-    story_lookup = data["_story_lookup"]
-    assert "level_main_00-01_beg" in story_lookup, "main_00-01_beg missing from lookup"
-    assert story_lookup["level_main_00-01_beg"] == "story/obt/main/level_main_00-01_beg.txt", f"Incorrect path for main_00-01_beg: {story_lookup['level_main_00-01_beg']}"
+        self.assertIn("skill_table", data)
+        self.assertEqual(data["skill_table"]["count"], 1630, "skill_table count incorrect")
 
-    print("All tests passed.")
+        self.assertIn("charword_table", data)
+        self.assertEqual(data["charword_table"]["count"], 17299, "charword_table count incorrect")
+
+        self.assertIn("stage_table", data)
+        self.assertEqual(data["stage_table"]["count"], 3319, "stage_table count incorrect")
+
+        self.assertIn("retro_table", data)
+        self.assertEqual(data["retro_table"]["count"], 1316, "retro_table count incorrect")
+
+    def test_story_lookup(self):
+        with open(STORY_LOOKUP, 'r') as f:
+            story_lookup = json.load(f)
+        with open("webapp/data/stage_table.json", 'r') as f:
+            stage_table = json.load(f)
+
+        beg_count = 0
+        end_count = 0
+        for stage_data in stage_table.values():
+            if f"level_{stage_data['stageId']}_beg" in story_lookup:
+                beg_count += 1
+            if f"level_{stage_data['stageId']}_end" in story_lookup:
+                end_count += 1
+
+        self.assertEqual(beg_count, 581, f"Expected 581 stages with _beg scripts, got {beg_count}")
+        self.assertEqual(end_count, 587, f"Expected 587 stages with _end scripts, got {end_count}")
+
+        # Verify paths exist
+        for key, relpath in story_lookup.items():
+            full_path = os.path.join(DATA_DIR, relpath)
+            self.assertTrue(os.path.exists(full_path), f"Path does not exist: {full_path}")
 
 if __name__ == "__main__":
-    test_analyzer_output()
+    unittest.main()
