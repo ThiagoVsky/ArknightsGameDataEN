@@ -1,0 +1,1409 @@
+[activity_table]
+  displayOnHome: True, False
+  displayType: SIDESTORY, MINISTORY, NONE, BRANCHLINE
+  endTime: 1785149999, 1790852399, 1783335599, 1788173999, 1788692399, 1784545199, 1784199599, 1787223599, 1785409199, 1786013999
+  hasStage: True, False
+  id: act2break, act2autochess, act3blessing, act14pray, act41sre, act49side, act3unique, act40sre, act27login, act20mini
+  isMagnify: False
+  isPageEntry: True, False
+  isReplicate: True, False
+  medalGroupId: medalGroupActivity40side, medalGroupActivityAct2break, medalGroupActivity46side, medalGroupActivity41side, medalGroupActivity49side, medalGroupActivity47side, medalGroupActivity39side, medalGroupActivity48side, None, medalGroupActivity38side
+  name: Vector Breakthrough #2: Trial from Misery, Lungmen Lucky Strips, Such is the Joy of Our Reunion - Rerun, Sign-In Campaign, 2026 Festival Sign-In, Stronghold Protocol: Alliance, First of A Thousand Autumns, Crossing, Hymn to A New Beginning Sign-In Event, When Elegies Are Ashes - Rerun
+  needFixedSync: True, False
+  picGroup:
+  recType: CAN_COMPLETE, SPECIAL, CANNOT_COMPLETE
+  rewardEndTime: 1785149999, 1783940399, 1783681199, 1788173999, 1787482799, 1784545199, 1785409199, 1786618799, 1791111599, 1789037999
+  startTime: 1785423600, 1784214000, 1782129600, 1782817200, 1786622400, 1787238000, 1783350000, 1781175600, 1787828400, 1780657200
+  templateShopId: shop_act20mini, shop_act46side, shop_act38sre, shop_act40sre, shop_act49side, shop_act47side, shop_act41sre, None, shop_act48side, shop_act39sre
+  trapDomainId: act32side, None, template_trap_46side
+  type: UNIQUE_ONLY, MINISTORY, SWITCH_ONLY, COLLECTION, AUTOCHESS_SEASON, VEC_BREAK_V2, TYPE_ACT9D0, LOGIN_ONLY, BLESS_ONLY, PRAY_ONLY
+  ungroupedMedalIds: None
+  usePicGroup: True, False
+
+[battle_equip_table]
+  phases:
+
+[campaign_table]
+  breakLadders:
+  dropGains:
+  isCustomized: True, False
+  isSmallScale: 0
+  stageId: camp_01, camp_r_01, camp_r_04, camp_r_06, camp_r_07, camp_02, camp_r_03, camp_r_02, camp_r_05, camp_03
+
+[chapter_table]
+  chapterEndStageId: st_16-03, st_14-03, st_08-06, main_03-08
+  chapterId: chapter_2, chapter_0, chapter_3, chapter_1
+  chapterIndex: 2, 3, 1, 0
+  chapterName: Nexus Point of Future, Shadow of A Dying Sun, Hour of An Awakening, Shatter of A Vision
+  chapterName2: Nexus Point of Future, SHADOW OF A DYING SUN, SHATTER OF A VISION, HOUR OF AN AWAKENING
+  endZoneId: main_14, act3mainss_zone1, main_3, main_8
+  preposedChapterId: None, chapter_0
+  startZoneId: act2mainss_zone1, main_4, main_0, main_9
+
+[char_meta_table]
+  mission_char_010_chen_0:
+  mission_char_010_chen_1:
+  mission_char_1011_lava2_0:
+  mission_char_1011_lava2_1:
+  mission_char_1012_skadi2_0:
+  mission_char_1012_skadi2_1:
+  mission_char_1013_chen2_0:
+  mission_char_1013_chen2_1:
+  mission_char_1014_nearl2_0:
+  mission_char_1014_nearl2_1:
+  mission_char_1021_kroos2_0:
+  mission_char_1021_kroos2_1:
+  mission_char_1023_ghost2_0:
+  mission_char_1023_ghost2_1:
+  mission_char_1024_hbisc2_0:
+  mission_char_1024_hbisc2_1:
+  mission_char_1026_gvial2_0:
+  mission_char_1026_gvial2_1:
+  mission_char_1027_greyy2_0:
+  mission_char_1027_greyy2_1:
+  mission_char_1028_texas2_0:
+  mission_char_1028_texas2_1:
+  mission_char_102_texas_0:
+  mission_char_102_texas_1:
+  mission_char_120_hibisc_0:
+  mission_char_120_hibisc_1:
+  mission_char_121_lava_0:
+  mission_char_121_lava_1:
+  mission_char_124_kroos_0:
+  mission_char_124_kroos_1:
+  mission_char_143_ghost_0:
+  mission_char_143_ghost_1:
+  mission_char_148_nearl_0:
+  mission_char_148_nearl_1:
+  mission_char_187_ccheal_0:
+  mission_char_187_ccheal_1:
+  mission_char_253_greyy_0:
+  mission_char_253_greyy_1:
+  mission_char_263_skadi_0:
+  mission_char_263_skadi_1:
+
+[char_patch_table]
+  default: char_002_amiya
+  tmplIds:
+
+[character_table]
+  activityPotentialItemId: voucher_lessng, None, voucher_vigil, voucher_ulika
+  allSkillLvlup:
+  appellation: ,  , Гум, Истина, foldable facility maintainer, infield groomer, football, Зима, Роса, supply station
+  canUseActivityPotentialItem: True, False
+  canUseGeneralPotentialItem: True, False
+  classicPotentialItemId: class_p_char_124_kroos, class_p_char_284_spot, class_p_char_240_wyvern, class_p_char_122_beagle, class_p_char_192_falco, class_p_char_123_fang, None, class_p_char_209_ardign, class_p_char_281_popka, class_p_char_208_melan
+  description: Attacks aerial enemies first and ignores <@ba.kw>Deployment Limit</>, but has a long Redeployment Ti, Attacks deal Physical Damage <@ba.kw>twice</> to <@ba.kw>ground</> enemies in a small radius (second, Blocks 2 enemies and ignores <@ba.kw>Deployment Limit</>, but has a long Redeployment Time, Does not attack but continuously restores the <@ba.kw>HP</> of all allies within range (the HP resto, Blocks 3 enemies and ignores <@ba.kw>Deployment Limit</>, but has a long Redeployment Time, Restores the HP of allies and ignores the <@ba.kw>Deployment Limit</>, but has a long Redeployment T, Blocks 2 enemies, Blocks 1 enemy and ignores the <@ba.kw>Deployment Limit</>, but has a long Redeployment Time, Does not attack and ignores the <@ba.kw>Deployment Limit</>, but has a long Redeployment Time, Attacks deal <@ba.kw>Arts damage</> and can inflict <@ba.kw>Elemental Injury</>. Not affected by <@b
+  displayNumber: LT47, KZ15, RCX5, RCX4, U007, A41, RCX6, RCX2, RCX3, MH01
+  displayTokenDict: None
+  favorKeyFrames: None
+  groupId: blacksteel, lgd, pinus, glasgow, karlan, rhine, siesta, sweep, penguin, None
+  isNotObtainable: True, False
+  isSpChar: True, False
+  itemDesc: You can see him cleaning his mask carefully every day., Though she gained a decent understanding of anti-surveillance a while back, it probably won't come i, This may not necessarily earn you victory, but it will get you back to camp safely., It knows it is a public service facility., Everyone admires how much effort she puts into training., She knows that she's a robot., He doesn't think of himself as a robot., She looks quite sleepy., His energetic disposition conceals his age., He knows that he's a robot.
+  itemObtainApproach: Obtained from Integrated Strategies, Main Theme Story, Event Reward, Recruitment & Headhunting, Pinboard Missions, Voucher Exchange, Anniversary Reward, Limited Gift Pack, None, Credit Store, Recruitment & Headhunting
+  itemUsage: U-Official, 'The Ultimate Beautiful Girl', has recently completed a perilous career leap from TV hos, A trio of Felynes willing to brave death to satiate their curiosity for the world of Terra., Lancet-2, Medic robot of Rhodes Island, is assigned by Engineer Closure to carry out medical assista, 'Justice Knight' of the Pinus Sylvestris Knightclub, tasked at Rhodes Island with cover fire support, Rhodes Island Defender Robot Friston-3, deployed to the battlefield by Engineer Closure to participa, Castle-3, Guard robot of Rhodes Island, is assigned by Engineer Closure to carry out combat duties i, Yato, Vanguard Operator of Rhodes Island, will fight on the battlefield to give the squad the upper , Rhodes Island Supporter Robot PhonoR-0, deployed to the battlefield by Engineer Closure to participa, Thermal-EX (a.k.a. THRM-EX), Specialist robot of Rhodes Island, is assigned by Engineer Closure to c, Lateran Automated Confessional 'CONFESS-47' wishes to hear your confession.
+  mainPower:
+  maxPotentialLevel: 5, 0
+  name: Friston-3, Lancet-2, THRM-EX, Terra Research Commission, 'Justice Knight', Castle-3, U-Official, Yato, CONFESS-47, PhonoR-0
+  nationId: bolivar, kazimierz, sami, iberia, laterano, columbia, rhodes, None, leithanien, victoria
+  phases:
+  position: NONE, MELEE, ALL, RANGED
+  potentialItemId: p_char_4077_palico, p_char_376_therex, p_char_4093_frston, p_char_4188_confes, p_char_4136_phonor, p_char_285_medic2, p_char_4000_jnight, None, p_char_286_cast3, p_char_502_nblade
+  potentialRanks:
+  profession: TANK, TRAP, SNIPER, TOKEN, MEDIC, PIONEER, SPECIAL, WARRIOR, CASTER, SUPPORT
+  rarity: TIER_4, TIER_3, TIER_2, TIER_5, TIER_1, TIER_6
+  skills:
+  sortIndex: 505, 1026, 533, 1134, 1079, 718, 380, 1013, 207, 155
+  spTargetId: rogue_5, None
+  spTargetType: ROGUE, NONE
+  subPower: None
+  subProfessionId: bombarder, physician, executor, corecaster, ritualist, protector, fearless, fastshot, bard, pioneer
+  tagList: None
+  talents: None
+  teamId: rainbow, reserve6, action4, mujica, student, reserve4, laios, None, reserve1, chiave
+  trait: None
+
+[charword_table]
+  charId: char_121_lava, char_120_hibisc, char_102_texas, char_501_durin, char_500_noirc, char_122_beagle, char_123_fang, char_502_nblade, char_124_kroos, char_503_rang
+  charWordId: char_102_texas_CN_001, char_102_texas_CN_010, char_102_texas_CN_004, char_102_texas_CN_008, char_102_texas_CN_006, char_102_texas_CN_009, char_102_texas_CN_007, char_102_texas_CN_005, char_102_texas_CN_003, char_102_texas_CN_002
+  lockDescription: None
+  placeType: HOME_WAIT, EVOLVE_ONE, GACHA, SQUAD, HOME_PLACE, BATTLE_START, HOME_SHOW, SQUAD_FIRST, LEVEL_UP, EVOLVE_TWO
+  unlockParam:
+  unlockType: FAVOR, AWAKE, DIRECT
+  voiceAsset: char_102_texas/CN_009, char_102_texas/CN_001, char_102_texas/CN_005, char_102_texas/CN_004, char_102_texas/CN_006, char_102_texas/CN_007, char_102_texas/CN_002, char_102_texas/CN_003, char_102_texas/CN_010, char_102_texas/CN_008
+  voiceId: CN_005, CN_009, CN_008, CN_010, CN_006, CN_002, CN_004, CN_003, CN_007, CN_001
+  voiceIndex: 5, 4, 3, 7, 8, 2, 1, 9, 10, 6
+  voiceText: Cigarette? Oh, no, this is chocolate. You've gotta replenish your energy regularly. Which reminds me, Is it time for a break?, My independent lifestyle and rowdy friends have brought me a lot of trouble... but I kind of like it, How long have I worked for Penguin Logistics? When did I start...? I don't even know how long it's b, No matter how hard I run, my past will catch up to me one day., My next mission is to protect you, Doctor., I usually listen to Sora's songs when I'm driving., I don't say much? That's because I'd rather avoid thinking about most things., Our job is to deliver life and death., Watch out for the Red Wolf. She's not evil, but... she's not like us.
+  voiceTitle: Talk 1, Talk after Trust Increase 3, Talk after Promotion 1, Talk after Trust Increase 1, Idle, Appointed as Assistant, Talk 3, Talk after Trust Increase 2, Talk 2, Talk after Promotion 2
+  voiceType: ENUM, ONLY_TEXT
+  wordKey: char_121_lava, char_120_hibisc, char_102_texas, char_501_durin, char_500_noirc, char_122_beagle, char_123_fang, char_502_nblade, char_124_kroos, char_503_rang
+
+[checkin_table]
+  description: A day's plan starts in the morning. The Logistics Department of Rhodes Island will provide a variety
+  groupId: signin31, signin27, signin33, signin34, signin25, signin29, signin30, signin26, signin32, signin28
+  items:
+  signEndTime: 1667300399, 1664621999, 1659351599, 1643713199, 1648810799, 1651402799, 1654081199, 1662029999, 1656673199, 1646132399
+  signStartTime: 1654081200, 1646132400, 1641034800, 1664622000, 1656673200, 1651402800, 1659351600, 1648810800, 1643713200, 1662030000
+  title: October, January, September, March, June, July, April, August, February, May
+
+[climb_tower_table]
+  bossId: enemy_6010_boxing, enemy_6020_orang, enemy_6018_carrier, enemy_6016_splash, enemy_6014_crzgas, enemy_6011_planty, enemy_6013_smith, None, enemy_6015_ictruck, enemy_6022_m2cnt
+  cardId: card_tower_05, card_tower_08, card_tower_09, card_tower_13, card_tower_06, card_tower_10, card_tower_11, card_tower_12, card_tower_07, None
+  curseCardIds:
+  dangerDesc: <color=#FF4200>Danger Level Effect:</color>
+Enemies gain increased HP, ATK, and Movement Speed, <color=#FF4200>Danger Level Effect:</color>
+Enemies gain increased HP and ASPD, <color=#FF4200>Danger Level Effect:</color>
+Enemies gain increased HP, ATK, and DEF, <color=#FF4200>Danger Level Effect:</color>
+Enemies gain increased HP and ATK
+  desc: Recently, the flora of the Acahuallan Jungle has thrived a bit too well, to the point where it is tr, An emergency recently occurred at a dessert production platform on the outskirts of Laterano. To sat, Eerie melodies haunt a Leithanian border town, disrupting the Noise Correction Band's plans to perfo, An abandoned lighthouse situated along the Iberian coastline has attracted the attention of many exp, A former Mama John's employee has showed up at a new plate built by Mama for employee housing, trick, This training program is designed for Operators and command personnel participating in the Stationar, 'The Giant, Ultimate Ugly Thing Cup' Self-Driving Robots Competition Preliminaries are a series of c, One of Dossoles' under-construction plates was hijacked by a gang of barrens thugs while in transit., An industrial gas leak at a Raythean weapons testing platform has caused many workers to become ill., One of Tower Mountains's experimental agricultural platforms near Rim Billiton was taken over by a g
+  hardLevels: None
+  hardModeDesc: <color=#EB2829>Emergency Supply Condition:</color>
+Enemy DEF increases according to Danger Level, <color=#EB2829>Emergency Supply Condition:</color>
+All enemies take reduced damage while not being b, <color=#EB2829>Emergency Supply Condition:</color>
+All enemies gain greatly increased ATK when they , <color=#EB2829>Emergency Supply Condition:</color>
+When not blocked, the Arts and Physical damage al, <color=#EB2829>Emergency Supply Condition:</color>
+Enemy RES increases according to Danger Level, <color=#EB2829>Emergency Supply Condition:</color>
+When defeated, enemies deal 50% of their ATK as P, None, <color=#EB2829>Emergency Supply Condition:</color>
+Enemy Movement Speed increases according to Dange, <color=#EB2829>Emergency Supply Condition:</color>
+Enemy ASPD increases according to Danger Level, <color=#EB2829>Emergency Supply Condition:</color>
+Poison Haze deals more damage
+  hardModeMedalId: medal_hardtower_complete_06, medal_hardtower_complete_07, medal_hardtower_complete_13, medal_hardtower_complete_11, medal_hardtower_complete_08, medal_hardtower_complete_09, medal_hardtower_complete_12, medal_hardtower_complete_10, None, medal_hardtower_complete_05
+  hiddenMedalId: medal_hidden_tower_13, medal_hidden_tower_07, medal_hidden_tower_10, medal_hidden_tower_06, medal_hidden_tower_09, medal_hidden_tower_11, medal_hidden_tower_08, None, medal_hidden_tower_12, medal_hidden_tower_05
+  id: tower_n_08, tower_tr_01, tower_tr_03, tower_n_10, tower_n_11, tower_n_05, tower_n_06, tower_n_09, tower_n_07, tower_tr_02
+  levels:
+  medalId: medal_tower_complete_07, medal_tower_complete_09, medal_tower_complete_05, medal_tower_complete_10, medal_tower_complete_12, medal_tower_complete_08, medal_tower_complete_13, medal_tower_complete_06, medal_tower_complete_11, None
+  name: Mama John's New Plate, Acahuallan Jungle, Training Ground #10, Tower Mountains Agricultural Experimental Platform, Training Ground #9, Raythean Industries Test Platform, Alsterii Bellariorum Manufacture Platform, Under-Construction Dossoles Plate, Training Ground #7, The Abandoned Lighthouse
+  preTowerId: tower_tr_01, None, tower_tr_02
+  sortId: 103, 3, 106, 105, 2, 1, 101, 107, 102, 104
+  stageNum: 1, 6
+  subName: Terran Society For The Protection of Durin People, Raythean Industries, Tower Mountains Biotech, The Inquisition, Inam, Rhodes Island Pharmaceuticals, Alsterii Monastery, The Noise Correction Band, Mama John's, Dossoles Department of Security
+  taskInfo: None
+  towerType: TRAINING, NORMAL
+
+[crisis_v2_table]
+  crisisV2SeasonCode: #1, #3, #2, #4
+  endTs: 1770375599, 1718794799, 1728557999, 1756378799
+  medalGroupId: medalGroupActivityCrisisV202, medalGroupActivityCrisisV204, medalGroupActivityCrisisV201, medalGroupActivityCrisisV203
+  medalId: medal_activity_3crisisv2_01, medal_activity_2crisisv2_01, medal_activity_4crisisv2_01, medal_activity_1crisisv2_01
+  name: Battleplan Pyrolysis, Battleplan Underdawn, Battleplan Arclight, Battleplan Extinguished Sins
+  seasonBgm: crisis_v2_season_1_1_main, crisis_v2_season_3_1_main, crisis_v2_season_4_1_main, crisis_v2_season_2_1_main
+  seasonBgmChallenge: crisis_v2_season_2_1_main_challenge, crisis_v2_season_1_1_main_challenge, crisis_v2_season_4_1_main, crisis_v2_season_3_1_main
+  seasonId: crisis_v2_season_1_1, crisis_v2_season_4_1, crisis_v2_season_3_1, crisis_v2_season_2_1
+  startTs: 1727370000, 1769180400, 1755190800, 1717606800
+  themeColor1: a09f53, b32600, 90344a, a78d4a
+  themeColor2: 8c8b4d, b32600, ffe299, ff6a8e
+  themeColor3: a09f53, b32600, 90344a, a78d4a
+
+[display_meta_table]
+  approachHideText: Currently unobtainable
+  canUidHide: True
+  defaultNameCardSkinId: nc_rhodes_default
+  module_assist:
+  module_avatar:
+  module_avatar_simple:
+  module_background:
+  module_collect:
+  module_equip:
+  module_illust:
+  module_mainline:
+  module_medal:
+  module_sign:
+  nc_5d5_1:
+  nc_6d5_1:
+  nc_as2024_dreamer:
+  nc_as2024_novafive:
+  nc_as2024_pilgrim:
+  nc_as2024_throne:
+  nc_as2025_BloomsofTime:
+  nc_as2025_DivineReverie:
+  nc_as2025_EchoesoftheLegends:
+  nc_as2025_GlazedGrace:
+  nc_as2025_TheWildEra:
+  nc_avemujica_1:
+  nc_dragonboat_1:
+  nc_landscape_1:
+  nc_moon_1:
+  nc_movie_1:
+  nc_rhodes_default:
+  nc_rhodes_light:
+  nc_rilakkuma_1:
+  nc_sandbox_1:
+  nc_sports_1:
+  nc_sweetness_1:
+  nc_taiko_1:
+  nc_undertides_1:
+  removableModuleMaxCount: 7
+
+[enemy_handbook_table]
+  ability: None
+  abilityList:
+  attackType: None
+  damageType:
+  description: An infected wild creature that is more dangerous than an Originium Slug α. Due to their low intellig, An infected wild creature that has become unstable due to assimilating a large amount of Originium i, An infected wild creature that is more dangerous than an Acid Originium Slug. Secretes corrosive flu, A creature controlled by a Reunion recon squad that is more dangerous than a Hound Pro. Monitoring e, An infected wild creature. Due to their low intelligence, they are easily controlled by enemy caster, A creature controlled by a Reunion recon squad. Monitoring equipment is strapped to its body. Due to, An infected wild creature that can secrete corrosive fluids strong enough to dissolve armor. Due to , An infected wild creature that is more dangerous than a normal Originium Slug. Due to their low inte, A creature controlled by a Reunion recon squad that is more dangerous than a normal Hound. Monitorin, One of Reunion's basic melee soldiers. Equipped with illegally obtained weapons and armor, they wear
+  enemyId: enemy_1021_bslime_2, enemy_1007_slime_3, enemy_1004_mslime_2, enemy_1000_gopro_2, enemy_1000_gopro_3, enemy_1021_bslime, enemy_1000_gopro, enemy_1007_slime, enemy_1004_mslime, enemy_1007_slime_2
+  enemyIndex: B1, B7, B2, O3, B5, O1, O2, B3, B4, B6
+  enemyLevel: BOSS, ELITE, NORMAL
+  enemyTags: None
+  hideInHandbook: True, False
+  hideInStage: True, False
+  invisibleDetail: True, False
+  isInvalidKilled: True, False
+  linkEnemies:
+  name: Infused Originium Slug α, Acid Originium Slug, Infused Originium Slug, Originium Slug, Hound Pro, Originium Slug α, Hound, Rabid Hound Pro, Acid Originium Slug α, Originium Slug β
+  overrideKillCntInfos:
+  sortId: 5, 4, 3, 7, 8, 2, 1, 9, 10, 6
+
+[handbook_info_table]
+  charID: char_121_lava, char_120_hibisc, char_501_durin, char_500_noirc, char_122_beagle, char_123_fang, char_502_nblade, char_208_melan, char_124_kroos, char_503_rang
+  handbookAvgList:
+  infoName: Unknown
+  isLimited: True, False
+  storyTextAudio:
+
+[handbook_table]
+  charID: char_102_texas
+  drawName: Unknown
+  infoName: Unknown
+  infoTextAudio:
+  storyTextAudio:
+
+[handbook_team_table]
+  color: 000000
+  isLimited: False
+  isRaw: True, False
+  orderNum: 5, 4, 3, 0, 7, 8, 2, 1, 10, 6
+  powerCode: Yan-Lungmen, NONE, Yan, Higashi, Rhodes Island, Iberia, Bolívar, Columbia, Ægir, Kazimierz
+  powerId: bolivar, none, higashi, kazimierz, iberia, yan, lungmen, columbia, rhodes, egir
+  powerLevel: 2, 1, 0
+  powerName: No team, Yan-Lungmen, Higashi, Yan, Rhodes Island, Iberia, Bolívar, Columbia, Ægir, Kazimierz
+
+[item_table]
+  buildingProductList:
+  classifyType: CONSUME, MATERIAL, NONE, NORMAL
+  description: Haste makes waste. For Rhodes Island, every operation has the potential for a loss of life. Therefor, Credit holds communities together and stands as a symbol of social stability. Sometimes it's even mo, Good job. Keep it up and get stronger. As long as you don't give up, your efforts will pay off in th, Made from Originite Prime, it also contains other minerals. In the past, it was used only as a condu, A special voucher made for you in light of your support for Closure's procurement work. Can be excha, Drones used for construction. They are controlled by the Rhodes Island Logistics Department. Without, Who will it be? Can't wait!, Widely used in industry, this Originium crystal is difficult to extract. Its production requires ver, An Originium shard collected from heavily contaminated regions. Anyone who touches it has a high cha, 'What is it that distinguishes us from this land? Our breath, or feeling? Or life and death?'
+  hideInItemGet: True, False
+  iconId: EXP_PLAYER, giftPackageTicket_4_1, bilibili001, TKT_TRY, SOCIAL_PT, DIAMOND_SHD, AP_BASE, MTL_DIAMOND_SHD, AP_GAMEPLAY, DIAMOND
+  itemId: giftPackageTicket_4_1, bilibili001, 5001, 4002, SOCIAL_PT, 6001, 4003, 3141, base_ap, AP_GAMEPLAY
+  itemType: EXP_PLAYER, TKT_TRY, SOCIAL_PT, TKT_GACHA_PRSV, DIAMOND_SHD, AP_BASE, AP_GAMEPLAY, 86, DIAMOND, MATERIAL
+  name: EXP, Orundum, Drone, Originite Prime, Sanity, Preregister to get 1 of 4 Operators randomly, Drill Plan, Closure's Collection Voucher I, Originium Shard, Credit
+  obtainApproach: Auto Recovery, Preregistration reward, Stage Drop, Friend Support, Support Units, Dormitory Ambience, Clue Exchange, From special orders, Cleaning rooms, Auto Recovery, Restored to 30 every day, Store, First Clear Rewards, New Operator's gift, None
+  overrideBkg: None
+  rarity: TIER_4, TIER_3, TIER_2, TIER_5, TIER_1, TIER_6
+  shopRelateInfoList: None
+  sortId: 10113, 10121, 10003, 10002, 10112, 10114, 10111, 10101, -10000, 10001
+  stackIconId: sprite_exp_card_stack_t2, sprite_exp_card_stack_t3, DIAMOND_SHD_STACK, GOLD_STACK, sprite_exp_card_stack_t4, None, sprite_exp_card_stack_t1
+  stageDropList:
+  usage: Experience gained from battle. It shows how far you've come., A plan used for tactical drills. Use it on the operation interface to simulate a battle so you can m, Used to get preregistration rewards., A machine that is important for the Base construction of Rhodes Island. Can be used to clean, constr, Can be exchanged for a $49.99 pack currently being sold at the Pack Shop that matches the exchange c, Dangerous but necessary, this precious material is widely used across many fields., An artificial material commonly used to recruit operators., A token of friendship. Can be used to exchange items from the Store., An Originium shard collected from polluted regions. Can be used to produce Orundum., The mental capacity to remain self aware, draw up plans, and execute them.
+  voucherRelateList: None
+
+[mission_table]
+  backImagePath: Arts/UI/MainMission/main_8, Arts/UI/MainMission/main_4, Arts/UI/MainMission/main_2, Arts/UI/MainMission/main_7, Arts/UI/MainMission/main_3, Arts/UI/MainMission/main_5, Arts/UI/MainMission/main_6, Arts/UI/MainMission/main_0, None, Arts/UI/MainMission/main_1
+  countEndTs: -1
+  description: Add 1 Defender, 1 Vanguard, 1 Medic and 1 Sniper Operator to the same squad, Raise any Operator to Lv. 20., Complete any stages with 3 stars 1 time(s), Complete any stages 1 time(s) on Practice mode, Upgrade any Operator 1 time(s), Complete a 1-Difficulty Operation in Supplies, Edit your profile in the Friends page 1 time, Perform Recruitment one time, Player reaches Lv.2, Upgrade any Operator's Skills 1 time(s)
+  foldId: sub_f_5, sub_f_9, sub_f_3, sub_f_1, sub_f_4, sub_f_7, sub_f_6, sub_f_8, None, sub_f_2
+  haveSubMissionToUnlock: True, False
+  id: guide_3, guide_10, guide_5, guide_1, guide_9, guide_8, guide_6, guide_7, guide_2, guide_4
+  itemBgType: Char, Equipment, COMMON
+  missionGroup: guide_g_2, sub_g_1, sub_g_2, guide_g_7, guide_g_8, guide_g_4, guide_g_5, guide_g_1, guide_g_3, guide_g_6
+  param:
+  periodicalPoint: 2, 3, 1, 0
+  preMissionIds: None
+  rewards: None
+  sortId: 5, 4, 3, 0, 7, 8, 2, 1, 9, 6
+  template: SquadFormation, CompleteStage, NormalGacha, UpgradeChar, CharIntimacy, EditBusinessCard, UpgradeSkill, CompleteAnyStage, SetAssistCharList, UpgradePlayer
+  templateType: 4, 3, 0, 2, 1
+  toPage: None
+  type: RETRO, MAIN, WEEKLY, GUIDE, DAILY, SPECIAL_OPERATOR_WEEKLY, SUB
+  unlockCondition: None, StageCondition
+  unlockParam: None
+
+[range_table]
+  direction: 1
+  grids:
+  id: 2-1, 0-1, 2-2, 1-3, 0-2, 1-1, 1-4, 1-5, 2-3, 1-2
+
+[replicate_table]
+  replicateList:
+
+[retro_table]
+  advancedRuneIdList1:
+  advancedRuneIdList2:
+  apCost: 20, 0, 12, 25, 21, 24, 15, 18, 9, 10
+  apFailReturn: 20, 0, 12, 25, 21, 24, 15, 18, 9, 10
+  apProtectTimes: 1, 0
+  appearanceStyle: TRAINING, MIST_OPS, SPECIAL_STORY, MAIN_PREDEFINED, HIGH_DIFFICULTY, MAIN_NORMAL
+  bossMark: True, False
+  canBattleReplay: True, False
+  canMultipleBattle: True, False
+  canPractice: True, False
+  canUseBattlePerformance: True, False
+  canUseCharm: True, False
+  canUseFirework: True, False
+  canUseTech: True, False
+  canUseTrapTool: False
+  code: DM-2, DM-1, DM-5, DM-6, DM-4, DM-7, DM-8, DM-ST-1, DM-EX-1, DM-3
+  completeFavor: 20, 0, 12, 25, 21, 24, 15, 18, 9, 10
+  dailyStageDifficulty: 0
+  dangerLevel: Elite 1 Lv. 10, -, Elite 1 Lv. 40, Elite 2 Lv. 10, LV.1, Elite 1 Lv. 60, Elite 1 Lv. 50, Elite 1 Lv. 35, Elite 1 Lv. 1, LV.35
+  dangerPoint: -1.0
+  description: This is but one cycle. Each person will walk from one end to the other and repeat the process, again, Would you feel honored to fight alongside living legends and enshrined heroes? Or would you fear for, Being betrayed over and over is much like wringing a sponge. It may return to its original shape soo, Every washed-up greenhorn at the bar thinks they can take on ten thousand enemies. When charging, th, The story of every battle will be copied hundreds upon thousands of times, tucked away in places whe, A flag trampled into the mud is worthless, but according to some, these pieces of cloth representing, The only way to overturn fate is to gamble. Only reckless actions with indeterministic results can a, Hide your thoughts. Hide them from yourself. Raise your sword and staff. A soldier must always move , To her child she spoke. To herself she spoke., Several accidental betrayals. Several inevitable rescues.
+<@lv.item><Originium Jetstream></>Continuo
+  diamondOnceDrop: 1, 0
+  diffGroup: NONE
+  difficulty: FOUR_STAR, SIX_STAR, NORMAL
+  displayMainItem: 30033, 31093, 31033, 2003, 30083, 30053, 31053, 31043, None, 4001
+  etButtonStyle: None
+  etCost: 0
+  etFailReturn: 0
+  etItemId:
+  expGain: 90, 240, 0, 120, 180, 250, 100, 150, 200, 210
+  extraCondition: None
+  extraInfo: None
+  goldGain: 90, 240, 0, 120, 180, 250, 100, 150, 200, 210
+  hardStagedId: act18d0_ex02#f#, act9d0_ex03#f#, act18d0_ex03#f#, act9d0_ex05#f#, act9d0_ex04#f#, act18d0_ex01#f#, act9d0_ex06#f#, act9d0_ex02#f#, act9d0_ex01#f#, None
+  hilightMark: True, False
+  isHardPredefined: True, False
+  isPredefined: True, False
+  isSkillSelectablePredefined: False
+  isStagePatch: False
+  isStoryOnly: True, False
+  levelId: Activities/ACT9D0/level_act9d0_08, Activities/ACT9D0/level_act9d0_06, Activities/ACT9D0/level_act9d0_01, Activities/ACT9D0/level_act9d0_ex01, Activities/ACT9D0/level_act9d0_07, Activities/ACT9D0/level_act9d0_04, None, Activities/ACT9D0/level_act9d0_02, Activities/ACT9D0/level_act9d0_03, Activities/ACT9D0/level_act9d0_05
+  loadingPicId: loading_iceforest_2, loading_SN_Town, loading1, loading_victoria, loading_SN_Boat, loading_SN_Wild, loading_iberia, loadingS, loading_DM, loading_OOD_02
+  loseExpGain: 0
+  loseGoldGain: 0
+  mainStageId: act18d0_01, act18d3_ex01, act18d3_01, act9d0_st01, act17side_06, act9d0_mo01, act9d0_01, act18d0_ex01, act17side_09, act17side_01
+  maxSlot: -1
+  name: Confrontation, Separated, Buried, By Chance, Advance, Far Away, Banner, Cracked, Beg for Mercy, Extrusion
+  passFavor: 20, 0, 12, 25, 21, 24, 15, 18, 9, 10
+  performanceStageFlag: NORMAL_STAGE, PERFORMANCE_STAGE
+  practiceTicketCost: -1, 3, 1, 0
+  sixStarBaseDesc: <@lv.fs>Condition: </>
+Some tiles have Originium formations that deal AoE damage., <@lv.fs>Condition: </>
+Enemies have greatly increased DEF., <@lv.fs>Condition: </>
+4 tiles on the battlefield are no longer available for deployment., <@lv.fs>Condition:</>
+Allied units have decreased ATK., <@lv.fs>Condition:</>
+Enemies have increased Movement Speed., <@lv.fs>Condition: </>
+Mockup Auto Meal Distributor summon skill cooldown reduced., <@lv.fs>Condition:</>
+Different enemies will appear., <@lv.fs>Condition: </>
+Stable Sarkaz Caster Crystal DEF significantly increased., None, <@lv.fs>Condition: </>
+DP regeneration rate is decreased.
+  sixStarDisplayRewardList: None
+  sixStarStageId: main_15-05#s, main_15-09#s, main_15-06#s, main_15-02#s, main_15-10#s, main_15-04#s, main_15-03#s, None, main_15-07#s, main_15-08#s
+  slProgress: 295, 297, 0, 298, 299, 296, 302, 301, 300, 303
+  stageDropInfo:
+  stageId: act9d0_07, act9d0_02, act9d0_st01, act9d0_04, act9d0_06, act9d0_05, act9d0_01, act9d0_08, act9d0_03, act9d0_ex01
+  stageType: ACTIVITY, SPECIAL_STORY, MAIN, SUB
+  startButtonOverrideId: None, HIGH_DIFFICULTY
+  unlockCondition:
+  zoneId: permanent_sub_3_zone2, permanent_sub_4_zone5, permanent_sub_2_zone2, permanent_sub_4_zone4, permanent_sub_1_zone3, permanent_sub_4_zone1, permanent_sub_3_zone1, permanent_sub_2_zone1, permanent_sub_1_zone1, permanent_sub_1_zone2
+
+[roguelike_table]
+  BATTLE_BOSS:
+  BATTLE_ELITE:
+  BATTLE_NORMAL:
+  ENTERTAINMENT:
+  INCIDENT:
+  REST:
+  SHOP:
+  TREASURE:
+
+[roguelike_topic_table]
+  config:
+  disappearTimeOnMainScreen: 1740826800, 1659006000, 1686049200, 1710932400, 1767178800
+  fullStoredTime: 1706785200, 1785582000, 1677668400, 1759316400, 1730458800
+  homeEntryDisplayData:
+  id: rogue_5, rogue_1, rogue_4, rogue_2, rogue_3
+  lineText: The voices of the revenants draw you away from reality.
+A ritual, a communion.
+An otherworldly exper, Near Baizao, nestled between mounts and stream, tourists enjoy themselves.
+With the garden cleared o, Beneath the darkening sky, you find yourself lost in a fog-shrouded forest.
+You are in desperate nee, All the provisions and preparations are in place, and the team has gathered.
+You and the explorers d, The sea breeze blows past your shoulders to the other end of the ocean.
+There lies your destination,
+  medalGroupId: medalGroupRogue03, medalGroupRogue05, medalGroupRogue02, medalGroupRogue01, medalGroupRogue04
+  moduleTypes:
+  name: Expeditioner's Jǫklumarkar, Sui's Garden of Grotesqueries, Mizuki & Caerula Arbor, Sarkaz's Furnaceside Fables, Phantom & Crimson Solitaire
+  showMedalId: medal_rogue_4_01, medal_rogue_1_01, medal_rogue_2_01, medal_rogue_5_01, medal_rogue_3_01
+  sort: 5, 4, 3, 2, 1
+  startTime: 1709658000, 1766070000, 1657818000, 1684843200, 1739552400
+
+[sandbox_perm_table]
+  fullStoredTime: 1743505200
+  homeEntryDisplayData:
+  medalGroupId: medalGroupSandbox01
+  priceItemId: sandbox_1_tokencoin
+  sortId: 1
+  templateShopId: sandbox_1
+  topicId: sandbox_1
+  topicName: Tales Within the Sand
+  topicStartTime: 1723050000
+  topicTemplate: SANDBOX_V2
+  webBusType: ak_sandbox_1
+
+[sandbox_table]
+  baseConstTable:
+  battleLoadingTips:
+  buildGoldRatioDatas:
+  buildProduceDatas:
+  buildProduceUnlockDatas:
+  buildingItemDatas:
+  charStaminaMapping:
+  craftItemDatas:
+  dailyDescTemplateDatas:
+  developmentDatas:
+  developmentLimitDatas:
+  developmentLineSegmentDatas:
+  eventChoiceDatas:
+  eventDatas:
+  eventSceneDatas:
+  eventTypeDatas:
+  foodProduceDatas:
+  foodStaminaDatas:
+  foodmatBuffDatas:
+  foodmatDatas:
+  itemRuneList:
+  itemToastDatas:
+  itemTrapDatas:
+  mapConstTable:
+  missionDatas:
+  nodeTypeDatas:
+  nodeUpgradeDatas:
+  rewardConfigDatas:
+  runeDatas:
+  rushAvgDict:
+  rushEnemyGroup:
+  stageDatas:
+  trapDeployLimitDatas:
+  unitData:
+  weatherDatas:
+
+[skill_table]
+  hidden: False
+  iconId: skcom_enchant[1], sktok_cathy_wrench, sktok_blkngt_hypnos, skcom_blowrange_up[1], skcom_powerstrike[1], sktok_windft_wrench, skcom_powerstrike[2], skcom_atk_up[2], None, sktok_mitm_trshrb
+  levels:
+  skillId: skcom_assist_cost[2], skcom_def_up[2], skcom_atk_up[3], skcom_charge_cost[1], skcom_atk_up[1], skcom_atk_up[2], skcom_charge_cost[2], skcom_assist_cost[3], skcom_def_up[1], skcom_charge_cost[3]
+
+[skin_table]
+  avatarId: char_376_therex, char_285_medic2, char_4093_frston, char_4091_ulika, char_4000_jnight, char_4188_confes, char_4077_palico, char_4136_phonor, char_502_nblade, char_286_cast3
+  battleSkin:
+  buildingId: , char_002_amiya_winter#1, char_211_adnach_sale#5, char_002_amiya, char_002_amiya_test#1, char_250_phatom_sale#4, char_202_demkni_test#1, char_181_flower_daily#1, None, char_002_amiya_epoque#4
+  charId: char_376_therex, char_285_medic2, char_4093_frston, char_4091_ulika, char_4000_jnight, char_4188_confes, char_4077_palico, char_4136_phonor, char_502_nblade, char_286_cast3
+  displaySkin:
+  dynEntranceId: dyn_entrance_char_4064_mlynar_epoque#28, dyn_entrance_char_1035_wisdel_sale#14, dyn_entrance_char_472_pasngr_epoque#17, dyn_entrance_char_1016_agoat2_epoque#34, dyn_entrance_char_1038_whitw2_sale#15, dyn_entrance_char_113_cqbw_epoque#7, dyn_entrance_char_2023_ling_nian#12, dyn_entrance_char_1032_excu2_sale#12, None, dyn_entrance_char_245_cello_sale#12
+  dynIllustId: dyn_illust_char_1013_chen2_2, dyn_illust_char_1012_skadi2_2, dyn_illust_char_391_rosmon_2, dyn_illust_char_249_mlyss_2, dyn_illust_char_2015_dusk_2, dyn_illust_char_1035_wisdel_2, dyn_illust_char_1045_svash2_2, None, dyn_illust_char_1038_whitw2_2, dyn_illust_char_113_cqbw_2
+  dynPortraitId: dyn_portrait_char_332_archet_sale#14, dyn_portrait_char_003_kalts_sale#14, dyn_portrait_char_245_cello_sale#12, dyn_portrait_char_1035_wisdel_sale#14, dyn_portrait_char_1032_excu2_sale#12, dyn_portrait_char_1038_whitw2_sale#15, dyn_portrait_char_1001_amiya2_sale#16, dyn_portrait_char_124_kroos_sale#14, dyn_portrait_char_1037_amiya3_sale#13, None
+  illustId: illust_char_4000_jnight_1, illust_char_4077_palico_1, illust_char_376_therex_1, illust_char_286_cast3_1, illust_char_502_nblade_1, illust_char_4188_confes_1, illust_char_4093_frston_1, illust_char_285_medic2_1, illust_char_4091_ulika_1, illust_char_4136_phonor_1
+  isBuySkin: True, False
+  portraitId: char_502_nblade_1, char_4091_ulika_1, char_4077_palico_1, char_4093_frston_1, char_376_therex_1, char_286_cast3_1, char_285_medic2_1, char_4000_jnight_1, char_4136_phonor_1, char_4188_confes_1
+  skinId: char_4188_confes#1, char_4136_phonor#1, char_502_nblade#1, char_4093_frston#1, char_286_cast3#1, char_4000_jnight#1, char_4077_palico#1, char_285_medic2#1, char_376_therex#1, char_4091_ulika#1
+  spAvatarId: sp_char_003_kalts_sale#14, None, sp_char_124_kroos_sale#14, sp_char_1001_amiya2_sale#16
+  spDynIllustId: None, sp_dyn_illust_char_124_kroos_sale#14, sp_dyn_illust_char_003_kalts_sale#14, sp_dyn_illust_char_1001_amiya2_sale#16
+  spIllustId: sp_illust_char_003_kalts_sale#14, sp_illust_char_1001_amiya2_sale#16, None, sp_illust_char_124_kroos_sale#14
+  spPortraitId: sp_char_003_kalts_sale#14, None, sp_char_124_kroos_sale#14, sp_char_1001_amiya2_sale#16
+  tmplId: None, char_1037_amiya3, char_002_amiya, char_1001_amiya2
+  tokenSkinMap: None
+  voiceId: char_245_cello_sale#12, char_2023_ling_nian#12, char_1038_whitw2_sale#15, char_1032_excu2_sale#12, char_4025_aprot2, char_311_mudrok#1, char_1035_wisdel_sale#14, None, char_4067_lolxh#1, char_113_cqbw_epoque#7
+  voiceType: ILLUST, ALL, NONE
+
+[special_operator_table]
+  bgEffectId: bg_effect_rogue_5
+  bgId: pic_rogue_5
+  charEffectId: char_effect_rogue_5
+  soCharId: char_4195_radian
+  sortId: 1
+  targetId: rogue_5
+  targetTopicName: Sui's Garden of Grotesqueries
+  targetType: ROGUE
+  typeIconId: icon_rogue
+
+[stage_table]
+  advancedRuneIdList1:
+  advancedRuneIdList2:
+  apCost: 20, 0, 12, 24, 21, 15, 18, 9, 10, 6
+  apFailReturn: 20, 0, 12, 24, 21, 15, 18, 9, 10, 6
+  apProtectTimes: 1, 0
+  appearanceStyle: TRAINING, MIST_OPS, SPECIAL_STORY, MAIN_PREDEFINED, HIGH_DIFFICULTY, MAIN_NORMAL, SUB
+  bossMark: True, False
+  canBattleReplay: True, False
+  canMultipleBattle: True, False
+  canPractice: True, False
+  canUseBattlePerformance: True, False
+  canUseCharm: True, False
+  canUseFirework: True, False
+  canUseTech: True, False
+  canUseTrapTool: True, False
+  code: 0-1, 0-6, TR-4, TR-1, 0-2, 0-3, 0-5, 0-4, TR-3, TR-2
+  completeFavor: 20, 0, 12, 24, 21, 15, 18, 9, 10, 6
+  dailyStageDifficulty: 5, 4, 3, 0, -1, 2, 1, 6
+  dangerLevel: -, LV.5, LV.1, LV.20, LV.10, LV.30, LV.25, LV.35, LV.15, LV.40
+  dangerPoint: -1.0
+  description: The enemy's vanguard has appeared to your three o'clock. Deploy melee Operators to stop them., Learn how to use Medic Operators., Learn about the Operators' range and direction., <@lv.fs>Condition:</>
+The ATK of all allied units is halved., Learn how to take on aerial units with Sniper Operators., <@lv.fs>Condition:</>
+Deployment Points will not automatically recover., Enemy unmanned drones have entered the battlefield. Please deploy your Sniper Operators to deal with, <@lv.fs>Condition:</>
+The HP of enemy units is increased significantly., The enemy has sent more troops. Please make sure you have at least 1 Medic Operator in the squad for, More enemy drones have entered the battlefield. Please make sure your Sniper Operators are in a posi
+  diamondOnceDrop: 1, 0
+  diffGroup: NONE, NORMAL, TOUGH, ALL, EASY
+  difficulty: FOUR_STAR, SIX_STAR, NORMAL
+  displayMainItem: , furni_dropN001_vineColumn_01, 30011, 30051, 30021, 2001, 30041, 30031, 4001, 30061
+  etButtonStyle: act11d7, None
+  etCost: 20, 0, -1, 15, 6, 10
+  etFailReturn: 5, 14, 0, -1, 9, 19
+  etItemId: et_ObsidianPass_rep_1, None
+  expGain: 90, 240, 0, 120, 180, 100, 150, 200, 210, 60
+  extraCondition: None
+  extraInfo: None
+  goldGain: 90, 1410, 240, 0, 120, 180, 100, 150, 210, 60
+  hardStagedId: main_00-01#f#, main_00-04#f#, main_00-06#f#, main_00-03#f#, main_00-07#f#, main_00-09#f#, main_00-02#f#, main_00-05#f#, main_00-08#f#, None
+  hilightMark: True, False
+  isHardPredefined: True, False
+  isPredefined: True, False
+  isSkillSelectablePredefined: True, False
+  isStagePatch: True, False
+  isStoryOnly: True, False
+  levelId: Obt/Main/level_main_00-06, Obt/Main/level_main_00-04, Obt/Main/level_main_00-05, Obt/Main/level_main_00-02, Obt/Main/level_main_00-01, Obt/Training/level_training_4, Obt/Main/level_main_00-03, Obt/Training/level_training_2, Obt/Training/level_training_3, Obt/Training/level_training_1
+  loadingPicId: loading1, loading3, loading_CB_center, loading_LM_night, loading2, loading_LM_day, loading_LM_rain, loading4, loading_LM_frost, loadingS
+  loseExpGain: 0
+  loseGoldGain: 0
+  mainStageId: main_00-01#f#, tr_03, main_00-03#f#, main_00-03, main_00-04, tr_02, main_00-02#f#, tr_01, main_00-01, main_00-02
+  maxSlot: -1, 11
+  name: Directed Aim, Vanguard, Collapse, Precise Strike, Corruption, Brawl, Assault, Pursuit, Battlefield Treatment, Protection
+  passFavor: 20, 0, 12, 24, 21, 15, 18, 9, 10, 6
+  performanceStageFlag: NORMAL_STAGE, PERFORMANCE_STAGE
+  practiceTicketCost: -1, 3, 1, 0
+  sixStarBaseDesc: <@lv.fs>Condition: </>
+Deployment Limit -2, <@lv.fs>Condition: </>
+Miner Guerrillas have less HP, <@lv.fs>Condition: </>
+Allied units have reduced max HP, <@lv.fs>Condition: </>
+Army Frontline Commander has greatly increased HP, <@lv.fs>Condition: </>
+Abnormal Originium Slugs have greatly increased barriers, <@lv.fs>Condition:</>
+More enemies will appear, <@lv.fs>Condition: </>
+Allied units have greatly increased Redeployment Time, <@lv.fs>Condition: </>
+Ranged Operators have increased DP Cost, None, <@lv.fs>Condition: </>
+Allied Operators have reduced DEF
+  sixStarDisplayRewardList: None
+  sixStarStageId: main_16-05#s, main_16-09#s, main_16-10#s, main_16-04#s, main_16-03#s, main_16-06#s, main_16-02#s, main_16-01#s, None, main_16-07#s
+  slProgress: 5, 4, 3, 0, 7, 8, 2, 1, 9, 6
+  stageDropInfo:
+  stageId: main_00-01#f#, tr_03, main_00-03#f#, main_00-03, main_00-04, tr_02, main_00-02#f#, tr_01, main_00-01, main_00-02
+  stageType: ACTIVITY, MAIN, GUIDE, DAILY, SPECIAL_STORY, CAMPAIGN, SUB, CLIMB_TOWER
+  startButtonOverrideId: None, HIGH_DIFFICULTY
+  unlockCondition:
+  useSpecialSizeMapPreview: True, False
+  zoneId: guide_1, main_3, main_7, main_5, main_0, main_8, main_4, main_6, main_1, main_2
+
+[story_review_meta_table]
+  act13side_avg_1:
+  act13side_avg_2:
+  act13side_avg_3:
+  act13side_file_1:
+  act13side_file_2:
+  act13side_file_3:
+  act13side_file_4:
+  act13side_news_1:
+  act13side_news_10:
+  act13side_news_11:
+  act13side_news_12:
+  act13side_news_13:
+  act13side_news_14:
+  act13side_news_15:
+  act13side_news_16:
+  act13side_news_17:
+  act13side_news_18:
+  act13side_news_2:
+  act13side_news_3:
+  act13side_news_4:
+  act13side_news_5:
+  act13side_news_6:
+  act13side_news_7:
+  act13side_news_8:
+  act13side_news_9:
+  act13side_pic_0:
+  act13side_pic_1:
+  act13side_pic_10:
+  act13side_pic_11:
+  act13side_pic_12:
+  act13side_pic_13:
+  act13side_pic_14:
+  act13side_pic_15:
+  act13side_pic_2:
+  act13side_pic_3:
+  act13side_pic_4:
+  act13side_pic_5:
+  act13side_pic_6:
+  act13side_pic_7:
+  act13side_pic_8:
+  act13side_pic_9:
+  act17side_data_1_1:
+  act17side_data_1_2:
+  act17side_data_1_3:
+  act17side_data_1_4:
+  act17side_data_1_5:
+  act17side_data_1_6:
+  act17side_data_2_1:
+  act17side_data_2_2:
+  act17side_data_2_3:
+  act17side_data_2_4:
+  act17side_data_2_5:
+  act17side_data_3_1:
+  act17side_data_3_2:
+  act17side_data_ex_1:
+  act17side_data_ex_2:
+  act17side_data_ex_3:
+  act17side_data_ex_4:
+  act17side_data_ex_5:
+  act17side_data_ex_6:
+  act17side_data_h_1:
+  act17side_data_tech_0:
+  act17side_data_tech_1:
+  act17side_data_tech_2:
+  act17side_data_tech_3:
+  act17side_data_tech_4:
+  act17side_data_tech_5:
+  act17side_log_1:
+  act17side_log_10:
+  act17side_log_100:
+  act17side_log_101:
+  act17side_log_102:
+  act17side_log_103:
+  act17side_log_11:
+  act17side_log_12:
+  act17side_log_13:
+  act17side_log_14:
+  act17side_log_15:
+  act17side_log_16:
+  act17side_log_17:
+  act17side_log_18:
+  act17side_log_19:
+  act17side_log_2:
+  act17side_log_20:
+  act17side_log_21:
+  act17side_log_22:
+  act17side_log_23:
+  act17side_log_24:
+  act17side_log_25:
+  act17side_log_26:
+  act17side_log_27:
+  act17side_log_28:
+  act17side_log_29:
+  act17side_log_3:
+  act17side_log_30:
+  act17side_log_31:
+  act17side_log_32:
+  act17side_log_33:
+  act17side_log_34:
+  act17side_log_35:
+  act17side_log_36:
+  act17side_log_37:
+  act17side_log_38:
+  act17side_log_39:
+  act17side_log_4:
+  act17side_log_40:
+  act17side_log_41:
+  act17side_log_42:
+  act17side_log_43:
+  act17side_log_44:
+  act17side_log_45:
+  act17side_log_46:
+  act17side_log_47:
+  act17side_log_48:
+  act17side_log_49:
+  act17side_log_5:
+  act17side_log_50:
+  act17side_log_51:
+  act17side_log_52:
+  act17side_log_53:
+  act17side_log_54:
+  act17side_log_55:
+  act17side_log_56:
+  act17side_log_57:
+  act17side_log_58:
+  act17side_log_59:
+  act17side_log_6:
+  act17side_log_60:
+  act17side_log_61:
+  act17side_log_62:
+  act17side_log_63:
+  act17side_log_64:
+  act17side_log_65:
+  act17side_log_66:
+  act17side_log_67:
+  act17side_log_68:
+  act17side_log_69:
+  act17side_log_7:
+  act17side_log_70:
+  act17side_log_71:
+  act17side_log_72:
+  act17side_log_73:
+  act17side_log_74:
+  act17side_log_75:
+  act17side_log_76:
+  act17side_log_77:
+  act17side_log_78:
+  act17side_log_79:
+  act17side_log_8:
+  act17side_log_80:
+  act17side_log_81:
+  act17side_log_82:
+  act17side_log_83:
+  act17side_log_84:
+  act17side_log_85:
+  act17side_log_86:
+  act17side_log_87:
+  act17side_log_88:
+  act17side_log_89:
+  act17side_log_9:
+  act17side_log_90:
+  act17side_log_91:
+  act17side_log_92:
+  act17side_log_93:
+  act17side_log_94:
+  act17side_log_95:
+  act17side_log_96:
+  act17side_log_97:
+  act17side_log_98:
+  act17side_log_99:
+  act17side_log_ex_1:
+  act17side_log_ex_10:
+  act17side_log_ex_11:
+  act17side_log_ex_12:
+  act17side_log_ex_13:
+  act17side_log_ex_14:
+  act17side_log_ex_15:
+  act17side_log_ex_16:
+  act17side_log_ex_17:
+  act17side_log_ex_18:
+  act17side_log_ex_19:
+  act17side_log_ex_2:
+  act17side_log_ex_20:
+  act17side_log_ex_21:
+  act17side_log_ex_22:
+  act17side_log_ex_23:
+  act17side_log_ex_24:
+  act17side_log_ex_25:
+  act17side_log_ex_26:
+  act17side_log_ex_27:
+  act17side_log_ex_28:
+  act17side_log_ex_29:
+  act17side_log_ex_3:
+  act17side_log_ex_30:
+  act17side_log_ex_31:
+  act17side_log_ex_32:
+  act17side_log_ex_33:
+  act17side_log_ex_4:
+  act17side_log_ex_5:
+  act17side_log_ex_6:
+  act17side_log_ex_7:
+  act17side_log_ex_8:
+  act17side_log_ex_9:
+  act17side_log_h_1:
+  act17side_log_h_10:
+  act17side_log_h_11:
+  act17side_log_h_12:
+  act17side_log_h_13:
+  act17side_log_h_14:
+  act17side_log_h_15:
+  act17side_log_h_16:
+  act17side_log_h_17:
+  act17side_log_h_18:
+  act17side_log_h_19:
+  act17side_log_h_2:
+  act17side_log_h_20:
+  act17side_log_h_21:
+  act17side_log_h_22:
+  act17side_log_h_23:
+  act17side_log_h_24:
+  act17side_log_h_25:
+  act17side_log_h_26:
+  act17side_log_h_27:
+  act17side_log_h_28:
+  act17side_log_h_29:
+  act17side_log_h_3:
+  act17side_log_h_30:
+  act17side_log_h_31:
+  act17side_log_h_32:
+  act17side_log_h_33:
+  act17side_log_h_34:
+  act17side_log_h_35:
+  act17side_log_h_36:
+  act17side_log_h_4:
+  act17side_log_h_5:
+  act17side_log_h_6:
+  act17side_log_h_7:
+  act17side_log_h_8:
+  act17side_log_h_9:
+  act17side_pic_0:
+  act17side_pic_1:
+  act17side_pic_10:
+  act17side_pic_11:
+  act17side_pic_12:
+  act17side_pic_13:
+  act17side_pic_14:
+  act17side_pic_15:
+  act17side_pic_16:
+  act17side_pic_2:
+  act17side_pic_3:
+  act17side_pic_4:
+  act17side_pic_5:
+  act17side_pic_6:
+  act17side_pic_7:
+  act17side_pic_8:
+  act17side_pic_9:
+  act25side_file_1:
+  act25side_file_10:
+  act25side_file_11:
+  act25side_file_12:
+  act25side_file_2:
+  act25side_file_3:
+  act25side_file_4:
+  act25side_file_5:
+  act25side_file_6:
+  act25side_file_7:
+  act25side_file_8:
+  act25side_file_9:
+  act25side_pic_1:
+  act25side_pic_10:
+  act25side_pic_11:
+  act25side_pic_12:
+  act25side_pic_13:
+  act25side_pic_14:
+  act25side_pic_15:
+  act25side_pic_16:
+  act25side_pic_17:
+  act25side_pic_18:
+  act25side_pic_19:
+  act25side_pic_2:
+  act25side_pic_20:
+  act25side_pic_21:
+  act25side_pic_22:
+  act25side_pic_23:
+  act25side_pic_24:
+  act25side_pic_3:
+  act25side_pic_4:
+  act25side_pic_5:
+  act25side_pic_6:
+  act25side_pic_7:
+  act25side_pic_8:
+  act25side_pic_9:
+  act29side_hiddenInvest_1:
+  act29side_majorInvest_1:
+  act29side_majorInvest_2:
+  act29side_majorInvest_3:
+  act29side_majorInvest_4:
+  act29side_majorInvest_5:
+  act29side_majorInvest_6:
+  act42side_file_1:
+  act42side_file_2:
+  act42side_file_3:
+  act42side_file_4:
+  act42side_file_5:
+  avg_rogue_1_1:
+  avg_rogue_1_2:
+  avg_rogue_1_3:
+  avg_rogue_1_4:
+  avg_rogue_1_5:
+  music_act13side_0:
+  music_act13side_1:
+  music_act13side_2:
+  music_act13side_3:
+  music_act17side_0:
+  music_act17side_1:
+  music_act17side_2:
+  music_act17side_3:
+  music_act17side_4:
+  music_rogue_1_1:
+  music_rogue_1_2:
+  music_rogue_1_3:
+  music_rogue_1_4:
+  music_rogue_1_5:
+  music_rogue_1_6:
+  music_rogue_1_7:
+  music_rogue_1_8:
+  music_rogue_1_9:
+  music_rogue_2_1:
+  music_rogue_2_10:
+  music_rogue_2_11:
+  music_rogue_2_12:
+  music_rogue_2_13:
+  music_rogue_2_2:
+  music_rogue_2_3:
+  music_rogue_2_4:
+  music_rogue_2_5:
+  music_rogue_2_6:
+  music_rogue_2_7:
+  music_rogue_2_8:
+  music_rogue_2_9:
+  music_rogue_3_1:
+  music_rogue_3_10:
+  music_rogue_3_11:
+  music_rogue_3_12:
+  music_rogue_3_2:
+  music_rogue_3_3:
+  music_rogue_3_4:
+  music_rogue_3_5:
+  music_rogue_3_6:
+  music_rogue_3_7:
+  music_rogue_3_8:
+  music_rogue_3_9:
+  music_rogue_4_1:
+  music_rogue_4_10:
+  music_rogue_4_11:
+  music_rogue_4_12:
+  music_rogue_4_13:
+  music_rogue_4_2:
+  music_rogue_4_3:
+  music_rogue_4_4:
+  music_rogue_4_5:
+  music_rogue_4_6:
+  music_rogue_4_7:
+  music_rogue_4_8:
+  music_rogue_4_9:
+  music_rogue_5_1:
+  music_rogue_5_10:
+  music_rogue_5_11:
+  music_rogue_5_12:
+  music_rogue_5_13:
+  music_rogue_5_14:
+  music_rogue_5_15:
+  music_rogue_5_16:
+  music_rogue_5_2:
+  music_rogue_5_3:
+  music_rogue_5_4:
+  music_rogue_5_5:
+  music_rogue_5_6:
+  music_rogue_5_7:
+  music_rogue_5_8:
+  music_rogue_5_9:
+  music_sandbox_v2_1:
+  music_sandbox_v2_10:
+  music_sandbox_v2_2:
+  music_sandbox_v2_3:
+  music_sandbox_v2_4:
+  music_sandbox_v2_5:
+  music_sandbox_v2_6:
+  music_sandbox_v2_7:
+  music_sandbox_v2_8:
+  music_sandbox_v2_9:
+  pic_rogue_1_1:
+  pic_rogue_1_10:
+  pic_rogue_1_11:
+  pic_rogue_1_12:
+  pic_rogue_1_13:
+  pic_rogue_1_14:
+  pic_rogue_1_15:
+  pic_rogue_1_16:
+  pic_rogue_1_17:
+  pic_rogue_1_18:
+  pic_rogue_1_19:
+  pic_rogue_1_2:
+  pic_rogue_1_20:
+  pic_rogue_1_21:
+  pic_rogue_1_22:
+  pic_rogue_1_23:
+  pic_rogue_1_24:
+  pic_rogue_1_25:
+  pic_rogue_1_26:
+  pic_rogue_1_27:
+  pic_rogue_1_28:
+  pic_rogue_1_29:
+  pic_rogue_1_3:
+  pic_rogue_1_30:
+  pic_rogue_1_31:
+  pic_rogue_1_32:
+  pic_rogue_1_33:
+  pic_rogue_1_34:
+  pic_rogue_1_35:
+  pic_rogue_1_36:
+  pic_rogue_1_37:
+  pic_rogue_1_38:
+  pic_rogue_1_39:
+  pic_rogue_1_4:
+  pic_rogue_1_5:
+  pic_rogue_1_6:
+  pic_rogue_1_7:
+  pic_rogue_1_8:
+  pic_rogue_1_9:
+  pic_rogue_1_KV1:
+  pic_rogue_1_KV2:
+  pic_rogue_2_1:
+  pic_rogue_2_10:
+  pic_rogue_2_11:
+  pic_rogue_2_12:
+  pic_rogue_2_13:
+  pic_rogue_2_14:
+  pic_rogue_2_15:
+  pic_rogue_2_16:
+  pic_rogue_2_17:
+  pic_rogue_2_18:
+  pic_rogue_2_19:
+  pic_rogue_2_20:
+  pic_rogue_2_21:
+  pic_rogue_2_22:
+  pic_rogue_2_23:
+  pic_rogue_2_24:
+  pic_rogue_2_25:
+  pic_rogue_2_26:
+  pic_rogue_2_27:
+  pic_rogue_2_28:
+  pic_rogue_2_29:
+  pic_rogue_2_3:
+  pic_rogue_2_30:
+  pic_rogue_2_31:
+  pic_rogue_2_32:
+  pic_rogue_2_33:
+  pic_rogue_2_34:
+  pic_rogue_2_35:
+  pic_rogue_2_36:
+  pic_rogue_2_37:
+  pic_rogue_2_38:
+  pic_rogue_2_39:
+  pic_rogue_2_4:
+  pic_rogue_2_40:
+  pic_rogue_2_41:
+  pic_rogue_2_42:
+  pic_rogue_2_43:
+  pic_rogue_2_45:
+  pic_rogue_2_46:
+  pic_rogue_2_47:
+  pic_rogue_2_48:
+  pic_rogue_2_49:
+  pic_rogue_2_5:
+  pic_rogue_2_50:
+  pic_rogue_2_51:
+  pic_rogue_2_53:
+  pic_rogue_2_55:
+  pic_rogue_2_56:
+  pic_rogue_2_57:
+  pic_rogue_2_6:
+  pic_rogue_2_7:
+  pic_rogue_2_8:
+  pic_rogue_2_9:
+  pic_rogue_2_KV1:
+  pic_rogue_2_KV2:
+  pic_rogue_3_1:
+  pic_rogue_3_10:
+  pic_rogue_3_12:
+  pic_rogue_3_13:
+  pic_rogue_3_14:
+  pic_rogue_3_15:
+  pic_rogue_3_16:
+  pic_rogue_3_17:
+  pic_rogue_3_18:
+  pic_rogue_3_19:
+  pic_rogue_3_2:
+  pic_rogue_3_20:
+  pic_rogue_3_21:
+  pic_rogue_3_22:
+  pic_rogue_3_23:
+  pic_rogue_3_24:
+  pic_rogue_3_25:
+  pic_rogue_3_26:
+  pic_rogue_3_27:
+  pic_rogue_3_28:
+  pic_rogue_3_29:
+  pic_rogue_3_3:
+  pic_rogue_3_30:
+  pic_rogue_3_31:
+  pic_rogue_3_32:
+  pic_rogue_3_33:
+  pic_rogue_3_34:
+  pic_rogue_3_35:
+  pic_rogue_3_36:
+  pic_rogue_3_37:
+  pic_rogue_3_38:
+  pic_rogue_3_39:
+  pic_rogue_3_4:
+  pic_rogue_3_40:
+  pic_rogue_3_41:
+  pic_rogue_3_42:
+  pic_rogue_3_43:
+  pic_rogue_3_44:
+  pic_rogue_3_45:
+  pic_rogue_3_46:
+  pic_rogue_3_47:
+  pic_rogue_3_5:
+  pic_rogue_3_6:
+  pic_rogue_3_7:
+  pic_rogue_3_8:
+  pic_rogue_3_9:
+  pic_rogue_3_KV1:
+  pic_rogue_3_KV2:
+  pic_rogue_4_1:
+  pic_rogue_4_10:
+  pic_rogue_4_11:
+  pic_rogue_4_12:
+  pic_rogue_4_13:
+  pic_rogue_4_14:
+  pic_rogue_4_15:
+  pic_rogue_4_16:
+  pic_rogue_4_17:
+  pic_rogue_4_18:
+  pic_rogue_4_19:
+  pic_rogue_4_2:
+  pic_rogue_4_20:
+  pic_rogue_4_21:
+  pic_rogue_4_22:
+  pic_rogue_4_23:
+  pic_rogue_4_24:
+  pic_rogue_4_25:
+  pic_rogue_4_26:
+  pic_rogue_4_27:
+  pic_rogue_4_28:
+  pic_rogue_4_29:
+  pic_rogue_4_3:
+  pic_rogue_4_30:
+  pic_rogue_4_31:
+  pic_rogue_4_32:
+  pic_rogue_4_33:
+  pic_rogue_4_34:
+  pic_rogue_4_35:
+  pic_rogue_4_36:
+  pic_rogue_4_37:
+  pic_rogue_4_38:
+  pic_rogue_4_39:
+  pic_rogue_4_4:
+  pic_rogue_4_40:
+  pic_rogue_4_41:
+  pic_rogue_4_42:
+  pic_rogue_4_43:
+  pic_rogue_4_44:
+  pic_rogue_4_45:
+  pic_rogue_4_46:
+  pic_rogue_4_47:
+  pic_rogue_4_48:
+  pic_rogue_4_49:
+  pic_rogue_4_5:
+  pic_rogue_4_50:
+  pic_rogue_4_51:
+  pic_rogue_4_52:
+  pic_rogue_4_53:
+  pic_rogue_4_6:
+  pic_rogue_4_7:
+  pic_rogue_4_8:
+  pic_rogue_4_9:
+  pic_rogue_4_KV1:
+  pic_rogue_4_KV2:
+  pic_rogue_4_KV3:
+  pic_rogue_5_1:
+  pic_rogue_5_10:
+  pic_rogue_5_11:
+  pic_rogue_5_12:
+  pic_rogue_5_13:
+  pic_rogue_5_14:
+  pic_rogue_5_15:
+  pic_rogue_5_16:
+  pic_rogue_5_17:
+  pic_rogue_5_18:
+  pic_rogue_5_19:
+  pic_rogue_5_2:
+  pic_rogue_5_20:
+  pic_rogue_5_21:
+  pic_rogue_5_22:
+  pic_rogue_5_23:
+  pic_rogue_5_24:
+  pic_rogue_5_25:
+  pic_rogue_5_26:
+  pic_rogue_5_27:
+  pic_rogue_5_28:
+  pic_rogue_5_29:
+  pic_rogue_5_3:
+  pic_rogue_5_30:
+  pic_rogue_5_31:
+  pic_rogue_5_32:
+  pic_rogue_5_33:
+  pic_rogue_5_34:
+  pic_rogue_5_35:
+  pic_rogue_5_36:
+  pic_rogue_5_37:
+  pic_rogue_5_38:
+  pic_rogue_5_39:
+  pic_rogue_5_4:
+  pic_rogue_5_40:
+  pic_rogue_5_41:
+  pic_rogue_5_42:
+  pic_rogue_5_43:
+  pic_rogue_5_44:
+  pic_rogue_5_45:
+  pic_rogue_5_46:
+  pic_rogue_5_47:
+  pic_rogue_5_48:
+  pic_rogue_5_49:
+  pic_rogue_5_5:
+  pic_rogue_5_50:
+  pic_rogue_5_51:
+  pic_rogue_5_52:
+  pic_rogue_5_53:
+  pic_rogue_5_54:
+  pic_rogue_5_55:
+  pic_rogue_5_56:
+  pic_rogue_5_57:
+  pic_rogue_5_58:
+  pic_rogue_5_59:
+  pic_rogue_5_6:
+  pic_rogue_5_60:
+  pic_rogue_5_61:
+  pic_rogue_5_62:
+  pic_rogue_5_63:
+  pic_rogue_5_64:
+  pic_rogue_5_7:
+  pic_rogue_5_8:
+  pic_rogue_5_9:
+  pic_rogue_5_KV1:
+  pic_rogue_5_KV2:
+  pic_rogue_5_KV3:
+  rogue_3_challenge_story_01:
+  rogue_3_challenge_story_02:
+  rogue_3_challenge_story_03:
+  rogue_3_challenge_story_04:
+  rogue_3_challenge_story_05:
+  rogue_3_challenge_story_06:
+  rogue_3_challenge_story_07:
+  rogue_3_challenge_story_08:
+  rogue_3_challenge_story_09:
+  rogue_3_challenge_story_10:
+  rogue_3_challenge_story_11:
+  rogue_3_challenge_story_12:
+  rogue_3_challenge_story_13:
+
+[story_review_table]
+  actType: ACTIVITY_STORY, MAIN_STORY, MINI_STORY, NONE
+  customType: 1, 3, 0
+  endShowTime: -1, 0
+  endTime: -1, 0
+  entryType: ACTIVITY, MINI_ACTIVITY, NONE, MAINLINE
+  id: act15d0, act17d0, 1stact, act16d5, act13d5, act3d0, act9d0, act12d0, act11d0, act5d0
+  infoUnlockDatas:
+  name: Who Is Real, Mansfield Break, The Great Chief Returns, Heart of Surging Flame, Code of Brawl, Grani and the Knights' Treasure, Darknights Memoir, Maria Nearl, Twilight of Wolumonde, Operation Originium Dust
+  remakeEndTime: 1612349999, 1607597999, 1645181999, 1640948399, 1632221999, 1649933999, 1727953199, 1654772399, 1622199599, 1659005999
+  remakeStartTime: 1726765200, 1643994000, 1621004400, 1648738800, 1606402800, 1653577200, 1657818000, 1611154800, 1631026800, 1639753200
+  rewards: None
+  startShowTime: 1631098800, 1605697200, 1616065200, 1610017200, 1589972400, 1582714800, 1629457200, 1619694000, 1592391600, 1626174000
+  startTime: 1624363200, 1617894000, 1607612400, 1580943600, 1627646400, 1629298800, 1614265200, 1588194000, 1590602400, 1603897200
+  storyCompleteMedalId: medal_activity_9mini_01, medal_activity_4d0_01, medal_activity_7d5_01, medal_activity_15d5_01, medal_activity_8mini_01, medal_activity_10d5_01, medal_activity_7mini_01, medal_activity_6d5_01, medal_activity_13d0_01, None
+  storyEntryPicId: storyEntryPic_act17d0, storyEntryPic_act16d5, storyEntryPic_act9d0, storyEntryPic_act11d0, storyEntryPic_act12d0, storyEntryPic_act13d5, storyEntryPic_act3d0, storyEntryPic_act15d0, storyEntryPic_act5d0, storyEntryPic_act1d0
+  storyMainColor: b52714, ff8902, ffdd00, 0071e5, 730303, fb951a, 521717, a40109, None, fe3d11
+  storyPicId: storyPic_act7mini, storyPic_act6d5, storyPic_act8mini, storyPic_act15d5, storyPic_act9mini, storyPic_act13d0, storyPic_act10d5, storyPic_act7d5, None, storyPic_act4d0
+
+[story_table]
+  completedRewards: None
+  condition: None
+  disabled: True, False
+  id: obt/guide/beg/2_guide_to_home, obt/guide/l0-0/3_battle_ui, obt/guide/beg/0_welcome_to_guide, obt/guide/l0-1/1_training_level, obt/guide/l0-0/1_recruit_adv, obt/guide/beg/1a_guide_1to2, obt/guide/l0-0/0_home_ui, obt/guide/l0-0/2_make_squad, obt/guide/beg/1b_guide_1to2, obt/guide/l0-1/0_mission_main
+  needCommit: True, False
+  repeatable: True, False
+  setFlags: None
+  setProgress: 900, 20, 30, -1, 100, 600, 400, 200, 110, 10
+  trigger:
+  videoResource: True, False
+
+[token_table]
+  activityPotentialItemId: None
+  allSkillLvlup: None
+  appellation: Sensor, Sealed Floor, Broken Stump
+  canUseActivityPotentialItem: False
+  canUseGeneralPotentialItem: False
+  classicPotentialItemId: None
+  description: None
+  displayNumber: None
+  displayTokenDict: None
+  favorKeyFrames: None
+  groupId: None
+  isNotObtainable: False
+  isSpChar: False
+  itemDesc: None
+  itemObtainApproach: None
+  itemUsage: None
+  mainPower:
+  maxPotentialLevel: 0
+  name: Sensor, Sealed Floor, Broken Stump
+  nationId: None
+  phases:
+  position: NONE
+  potentialItemId: None
+  potentialRanks: None
+  profession: TRAP
+  rarity: TIER_1
+  skills: None
+  sortIndex: 0
+  spTargetId: None
+  spTargetType: NONE
+  subPower: None
+  subProfessionId: notchar2
+  tagList: None
+  talents: None
+  teamId: None
+  trait: None
+
+[uniequip_data]
+  charId: char_248_mgllan
+  itemCost: None
+  missionList:
+  showEvolvePhase: 2
+  showLevel: 1
+  tmplId: None
+  traitDescBundle:
+  type: ADVANCED, INITIAL
+  typeIcon: SUM-X, ORIGINAL
+  typeName: SUM-X, ORIGINAL
+  uniEquipDesc: 反正是一大段描述
+  uniEquipIcon: uniequip_002_mgllan, uniequip_001_mgllan
+  uniEquipId: uniequip_002_mgllan, uniequip_001_mgllan
+  uniEquipName: 麦哲伦原始装备, 麦哲伦专属装备A
+  unlockEvolvePhase: 2, 0
+  unlockFavorPercent: 0, 10070
+  unlockLevel: 0, 60
+
+[uniequip_table]
+  charColor: #625fd0, #ffd800, #5b4d9b, #C22B34, #888c5e, #8c6653, #fe7a34, #f77b36, #969570, #dceb00
+  charEquipOrder: 5, 4, 3, 0, 2, 1
+  charId: char_485_pallas, char_242_otter, char_430_fartth, char_308_swire, char_336_folivo, char_158_milu, char_248_mgllan, char_130_doberm, char_265_sophia, char_110_deepcl
+  equipShiningColor: grey, green, yellow, purple, red, blue
+  hasUnlockMission: True, False
+  isSpecialEquip: True, False
+  itemCost: None
+  missionList:
+  showEvolvePhase: PHASE_2
+  showLevel: 1
+  specialEquipColor: None, 0098dc
+  specialEquipDesc: None, Limited Modality
+  tmplId: None, char_1037_amiya3, char_1001_amiya2
+  type: ADVANCED, INITIAL
+  typeIcon: dea-x, exe-x, rin-y, sum-x, sum-y, rin-x, ins-x, dea-y, ins-y, original
+  typeName1: CHA, SWO, ORIGINAL, CHG, DRE, INS, DEA, EXE, RIN, SUM
+  typeName2: A, D, X, Y, None, B
+  uniEquipDesc: Operator Magallan has demonstrated a remarkable aptitude in combat with the deployment and control o, Multithreading enhancements—Completed
+Meeboos maintenance—Completed
+Detonate and Recycle circuitry—C, Scene is slowly moving toward her objective on her comfy little 'chair.'
+Her 'chair' is formed of tw, Operator Scene has demonstrated a remarkable aptitude in combat with her deployment of multiple mobi, Where does Deepcolor get her paint?
+Is it ground up ores?
+Is it a product of modern manufacturing?
+I, Operator Deepcolor has demonstrated remarkable aptitude in combat with the use of her 'Assistants.'
+, Operator Pallas has demonstrated a remarkable aptitude for rallying her fellow Minoan operators.
+The, Because of these black rocks on my body, I had no choice but to leave my homeland, the place where m, First expedition to the endless icefield, 25 days from the closest research station on foot:
+I just , Operator Mayer has demonstrated a remarkable aptitude in combat with her multithreaded control of 'M
+  uniEquipGetTime: 1663340400, 1640113200, 1628017200, 1672142400, 1643137200, 1666180800, 1631905200, 1635793200, 1667487600, 1634338800
+  uniEquipIcon: uniequip_002_folivo, uniequip_002_otter, original, uniequip_002_pallas, uniequip_002_doberm, uniequip_002_fartth, uniequip_002_mgllan, uniequip_002_sophia, uniequip_002_swire, uniequip_002_deepcl
+  uniEquipId: uniequip_002_folivo, uniequip_002_otter, uniequip_001_otter, uniequip_002_deepcl, uniequip_002_pallas, uniequip_002_mgllan, uniequip_001_pallas, uniequip_001_folivo, uniequip_001_deepcl, uniequip_001_mgllan
+  uniEquipName: Mayer's Badge, Weird Palette, Scene's Badge, Deepcolor's Badge, Magallan's Badge, Improved Lens.P, 'Ούρος', 'Meeboo' Control Terminal XP, Pallas's Badge, Drone Control Module.P
+  uniEquipShowEnd: 1663340400, 1640113200, 1628017200, 1672142400, 1643137200, 1666180800, 1631905200, 1635793200, 1667487600, 1634338800
+  unlockEvolvePhase: PHASE_0, PHASE_2
+  unlockFavors: None
+  unlockLevel: 40, 50, 0, 60
+
+[zone_table]
+  antiSpoilerId: main_15, None
+  bindMainlineRetroZoneId: None, permanent_main_1_zone1, permanent_main_2_zone1
+  bindMainlineZoneId: act2mainss_zone1, act3mainss_zone1, None
+  canPreview: True, False
+  hasAdditionalPanel: True, False
+  lockedText: , Currently locked, Clear the previous chapter to unlock, Clear 3-8 to unlock, None
+  sixStarMilestoneGroupId: main_15, main_16, None
+  type: ACTIVITY, MAINLINE_ACTIVITY, BRANCHLINE, WEEKLY, GUIDE, MAINLINE_RETRO, MAINLINE, CAMPAIGN, ROGUELIKE, CLIMB_TOWER
+  zoneID: guide_1, main_3, main_7, main_5, main_0, main_8, main_4, main_6, main_1, main_2
+  zoneIndex: 5, 4, 3, 0, 2, 1
+  zoneNameFirst: Prologue, Episode 5, Episode 6, Episode 2, Episode 3, Episode 7, Episode 4, Episode 1, Episode 8, None
+  zoneNameSecond: Roaring Flare, Necessary Solutions, Separated Hearts, Partial Necrosis, Evil Time Part 1, Stinging Shock, Evil Time Part 2, None, Burning Run, The Birth of Tragedy
+  zoneNameThird: EPISODE 08, EPISODE 03, EPISODE 04, EPISODE 06, EPISODE 07, EPISODE 05, EPISODE 02, None, EPISODE 00, EPISODE 01
+  zoneNameTitleCurrent: 07, 05, 02, 08, 01, 06, 04, 03, 00, None
+  zoneNameTitleEx: None, EPISODE
+  zoneNameTitleUnCurrent: 07, 05, 02, 08, 01, 06, 04, 03, 00, None
